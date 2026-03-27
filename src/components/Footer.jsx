@@ -19,7 +19,7 @@ export default function Footer() {
 
       <span style={{
         color: 'var(--accent)',
-        fontSize: '12px',
+        fontSize: '10px',
         fontWeight: 700,
         fontStyle: 'italic',
         letterSpacing: '0.04em',
