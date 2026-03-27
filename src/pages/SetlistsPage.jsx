@@ -56,7 +56,7 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
       {/* ── Hero ── */}
       <div className="hero-banner fade-up mb-8">
         <div className="relative z-10">
-          <span className="badge badge-purple mb-3 block w-fit">Worship Sessions</span>
+          <span className="badge badge-gold mb-3 block w-fit">Worship Sessions</span>
           <h1 className="font-black text-white mb-2" style={{ fontSize: 'clamp(24px, 5vw, 36px)', lineHeight: 1.1 }}>
             <span className="gradient-text">Setlists</span>
           </h1>
