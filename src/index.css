@@ -327,74 +327,87 @@ body {
   background: linear-gradient(90deg, transparent 0%, rgba(246,201,14,0.5) 50%, transparent 100%);
 }
 
-/* ── Bottom nav ── */
+/* ── Floating bottom nav (phones + tablets < 1024px) ── */
 .bottom-nav {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 40;
-  background: rgba(30,36,40,0.97);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid var(--border2);
+  background: rgba(37,44,51,0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(246,201,14,0.2);
+  border-radius: 99px;
   display: flex;
-  padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px));
+  padding: 8px 12px;
   gap: 4px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(246,201,14,0.08);
+  width: auto;
+  min-width: 260px;
+  max-width: 360px;
 }
 .bottom-nav-item {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 8px 4px;
-  border-radius: 12px;
+  gap: 3px;
+  padding: 8px 16px;
+  border-radius: 99px;
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
   font-family: 'Inter', sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
-.bottom-nav-item.active { background: rgba(246,201,14,0.13); }
-.bottom-nav-item .nav-icon  { font-size: 20px; line-height: 1; }
-.bottom-nav-item .nav-label { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
+.bottom-nav-item.active {
+  background: var(--accent);
+  box-shadow: 0 2px 12px rgba(246,201,14,0.35);
+}
+.bottom-nav-item.active .nav-icon  { color: #1a1f24 !important; }
+.bottom-nav-item.active .nav-label { color: #1a1f24 !important; }
+.bottom-nav-item .nav-icon  { font-size: 18px; line-height: 1; }
+.bottom-nav-item .nav-label { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; }
 
 /* ════════════════════════════════
    RESPONSIVE BREAKPOINTS
    ════════════════════════════════ */
 
 @media (max-width: 389px) {
-  .page-content  { padding-bottom: 80px; }
+  .page-content  { padding-bottom: 90px; }
   .hero-banner   { padding: 18px 14px; margin-bottom: 16px; }
   .hymn-row      { padding: 10px 10px; gap: 8px; }
   .btn           { padding: 7px 11px; font-size: 12px; }
   .btn-sm        { padding: 5px 8px; font-size: 11px; }
   .btn-xs        { padding: 3px 7px; font-size: 10px; }
   .badge         { padding: 2px 6px; font-size: 10px; }
-  .bottom-nav    { padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); }
-  .bottom-nav-item .nav-icon  { font-size: 17px; }
+  .bottom-nav    { min-width: 220px; padding: 6px 8px; bottom: 14px; }
+  .bottom-nav-item { padding: 7px 12px; }
+  .bottom-nav-item .nav-icon  { font-size: 16px; }
   .bottom-nav-item .nav-label { font-size: 9px; }
 }
 
 @media (min-width: 390px) and (max-width: 639px) {
-  .page-content { padding-bottom: 88px; }
+  .page-content { padding-bottom: 90px; }
   .hero-banner  { padding: 22px 18px; margin-bottom: 20px; }
   .hymn-row     { padding: 11px 12px; gap: 10px; }
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
-  .page-content { padding-bottom: 88px; }
+  .page-content { padding-bottom: 90px; }
   .hero-banner  { padding: 26px 24px; }
-  .bottom-nav   { padding: 8px 32px calc(8px + env(safe-area-inset-bottom, 0px)); }
-  .bottom-nav-item .nav-icon  { font-size: 22px; }
+  .bottom-nav   { min-width: 300px; max-width: 400px; bottom: 24px; }
+  .bottom-nav-item .nav-icon  { font-size: 20px; }
   .bottom-nav-item .nav-label { font-size: 11px; }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .page-content { padding-bottom: 96px; }
+  .page-content { padding-bottom: 100px; }
   .hero-banner  { padding: 30px 28px; }
-  .bottom-nav   { padding: 10px 48px calc(10px + env(safe-area-inset-bottom, 0px)); }
-  .bottom-nav-item { padding: 10px 8px; border-radius: 14px; }
+  .bottom-nav   { min-width: 320px; max-width: 440px; bottom: 28px; padding: 10px 16px; }
+  .bottom-nav-item { padding: 10px 20px; }
   .bottom-nav-item .nav-icon  { font-size: 22px; }
   .bottom-nav-item .nav-label { font-size: 12px; }
   .hymn-row     { padding: 14px 18px; }
