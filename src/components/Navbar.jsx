@@ -1,0 +1,158 @@
+import { useState } from 'react';
+import { useAdmin } from '../context/AdminContext';
+
+const NAV = [
+  { label: 'Hymns',     value: 'hymns',     icon: '♪' },
+  { label: 'Setlists',  value: 'setlists',  icon: '≡' },
+  { label: 'Favorites', value: 'favorites', icon: '★' },
+];
+
+export default function Navbar({ page, setPage }) {
+  const { isAdmin, login, logout } = useAdmin();
+  const [showLogin, setShowLogin] = useState(false);
+  const [pass, setPass] = useState('');
+  const [err, setErr] = useState('');
+
+  function handleLogin(e) {
+    e.preventDefault();
+    if (login(pass)) { setShowLogin(false); setPass(''); setErr(''); }
+    else setErr('Incorrect password.');
+  }
+
+  const activeStyle = {
+    background: 'linear-gradient(135deg, rgba(79,142,247,0.22), rgba(129,140,248,0.22))',
+    color: 'var(--accent)',
+    border: '1px solid var(--border3)',
+    boxShadow: '0 0 14px rgba(79,142,247,0.18)',
+  };
+  const inactiveStyle = {
+    background: 'transparent',
+    color: 'var(--muted2)',
+    border: '1px solid transparent',
+  };
+
+  return (
+    <>
+      {/* ── Desktop top nav (≥ 1024px) ── */}
+      <nav className="hidden lg:block sticky top-0 z-40"
+        style={{ background: 'rgba(5,7,15,0.94)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', position: 'relative' }}>
+        <div className="nav-glow" />
+        <div className="max-w-5xl mx-auto px-6 xl:px-8 h-16 flex items-center justify-between gap-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-black text-white text-sm"
+              style={{ background: 'linear-gradient(135deg, #4f8ef7, #818cf8)', boxShadow: '0 0 20px rgba(79,142,247,0.4)' }}>
+              C
+              <div className="absolute inset-0 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.15), transparent)' }} />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-black text-white" style={{ letterSpacing: '0.15em', fontSize: '15px' }}>CCAG</span>
+              <span style={{ color: 'var(--muted2)', fontSize: '10px', letterSpacing: '0.08em' }}>CHORD SHEET APP</span>
+            </div>
+          </div>
+          {/* Nav pill */}
+          <div className="flex items-center gap-1 p-1 rounded-xl" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+            {NAV.map(n => (
+              <button key={n.value} onClick={() => setPage(n.value)}
+                className="btn btn-sm" style={page === n.value ? activeStyle : inactiveStyle}>
+                <span>{n.icon}</span><span>{n.label}</span>
+              </button>
+            ))}
+          </div>
+          {/* Right */}
+          <div className="flex items-center gap-2 shrink-0">
+            {isAdmin ? (
+              <>
+                <span className="badge badge-green">● Admin</span>
+                <button onClick={logout} className="btn btn-ghost btn-sm">Sign out</button>
+              </>
+            ) : (
+              <button onClick={() => setShowLogin(true)} className="btn btn-ghost btn-sm">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                Admin
+              </button>
+            )}
+          </div>
+        </div>
+      </nav>
+
+      {/* ── Tablet + Phone top bar (< 1024px) ── */}
+      <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 md:px-6 h-14 md:h-16"
+        style={{ background: 'rgba(5,7,15,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)' }}>
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg md:rounded-xl flex items-center justify-center font-black text-white"
+            style={{ background: 'linear-gradient(135deg, #4f8ef7, #818cf8)', boxShadow: '0 0 14px rgba(79,142,247,0.35)', fontSize: '13px' }}>C</div>
+          <div className="flex flex-col leading-none">
+            <span className="font-black text-white" style={{ letterSpacing: '0.15em', fontSize: '14px' }}>CCAG</span>
+            <span className="hidden md:block" style={{ color: 'var(--muted2)', fontSize: '10px', letterSpacing: '0.06em' }}>CHORD SHEET APP</span>
+          </div>
+        </div>
+        {isAdmin ? (
+          <div className="flex items-center gap-2">
+            <span className="badge badge-green">● Admin</span>
+            <button onClick={logout} className="btn btn-ghost btn-xs md:btn-sm">Sign out</button>
+          </div>
+        ) : (
+          <button onClick={() => setShowLogin(true)} className="btn btn-ghost btn-xs md:btn-sm">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Admin
+          </button>
+        )}
+      </div>
+
+      {/* ── Bottom nav: tablet + phone (< 1024px) ── */}
+      <div className="lg:hidden bottom-nav">
+        {NAV.map(n => (
+          <button key={n.value} onClick={() => setPage(n.value)}
+            className={`bottom-nav-item ${page === n.value ? 'active' : ''}`}>
+            <span className="nav-icon" style={{ color: page === n.value ? 'var(--accent)' : 'var(--muted)' }}>{n.icon}</span>
+            <span className="nav-label" style={{ color: page === n.value ? 'var(--accent)' : 'var(--muted)' }}>{n.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* ── Admin login modal ── */}
+      {showLogin && (
+        <div className="overlay flex items-center justify-center p-4">
+          <div className="fade-up w-full max-w-sm"
+            style={{ background: 'var(--surface)', border: '1px solid var(--border3)', borderRadius: '20px', boxShadow: '0 0 80px rgba(79,142,247,0.15), 0 32px 64px rgba(0,0,0,0.6)' }}>
+            <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent)', borderRadius: '20px 20px 0 0' }} />
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: 'linear-gradient(135deg, rgba(79,142,247,0.2), rgba(129,140,248,0.2))', border: '1px solid var(--border3)' }}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-white font-bold text-base">Admin Access</p>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted2)' }}>CCAG Chord Sheet App</p>
+                </div>
+              </div>
+              <form onSubmit={handleLogin} className="flex flex-col gap-3">
+                <input type="password" value={pass} onChange={e => setPass(e.target.value)}
+                  placeholder="Enter admin password" autoFocus className="inp" />
+                {err && (
+                  <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs"
+                    style={{ background: 'rgba(248,113,113,0.08)', border: '1px solid rgba(248,113,113,0.2)', color: 'var(--red)' }}>
+                    ✕ {err}
+                  </div>
+                )}
+                <div className="flex gap-2 mt-1">
+                  <button type="submit" className="btn btn-primary flex-1">Sign in</button>
+                  <button type="button" onClick={() => { setShowLogin(false); setErr(''); setPass(''); }}
+                    className="btn btn-secondary">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
