@@ -43,7 +43,7 @@ export default function HymnsPage({ hymns, setHymns, favorites, setFavorites }) 
               Worship <span className="gradient-text">Chord Sheets</span>
             </h1>
             <p style={{ color: 'var(--muted2)', fontSize: '15px' }}>
-              {hymns.length} songs · {favorites.length} favourited
+              {hymns.length} songs available
             </p>
           </div>
           {isAdmin && (
