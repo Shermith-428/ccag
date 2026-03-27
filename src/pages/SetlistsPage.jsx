@@ -13,41 +13,50 @@ import { generateSetlistPDF } from '../utils/setlistPDF';
 
 function SortableHymnRow({ h, idx, onOpen, onRemove, transposedKey }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: h.id });
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isDragging ? 0.4 : 1,
-  };
 
   return (
-    <div ref={setNodeRef} style={style}
-      className="hymn-row fade-up"
-      style={{ ...style, padding: '15px 16px', borderRadius: '12px', cursor: 'default' }}>
+    <div ref={setNodeRef}
+      style={{
+        transform: CSS.Transform.toString(transform),
+        transition,
+        opacity: isDragging ? 0.4 : 1,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '14px',
+        padding: '18px 18px',
+        background: 'var(--surface)',
+        border: '1px solid var(--border)',
+        borderRadius: '14px',
+        cursor: 'default',
+      }}>
 
       {/* Drag handle */}
       <button {...attributes} {...listeners}
-        style={{ cursor: 'grab', padding: '4px 6px', color: 'var(--muted)', background: 'transparent', border: 'none', touchAction: 'none', flexShrink: 0 }}>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-          <circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/>
-          <circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/>
-          <circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/>
+        style={{ cursor: 'grab', padding: '6px', color: 'var(--muted)', background: 'transparent', border: 'none', touchAction: 'none', flexShrink: 0, lineHeight: 1 }}>
+        <svg width="16" height="16" viewBox="0 0 14 14" fill="currentColor">
+          <circle cx="4" cy="3" r="1.3"/><circle cx="10" cy="3" r="1.3"/>
+          <circle cx="4" cy="7" r="1.3"/><circle cx="10" cy="7" r="1.3"/>
+          <circle cx="4" cy="11" r="1.3"/><circle cx="10" cy="11" r="1.3"/>
         </svg>
       </button>
 
-      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-lg font-bold"
-        style={{ background: 'var(--surface3)', color: 'var(--muted2)', fontSize: '12px' }}>{idx + 1}</span>
+      {/* Number */}
+      <span style={{ flexShrink: 0, width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '8px', background: 'var(--surface3)', color: 'var(--muted2)', fontSize: '13px', fontWeight: 700 }}>
+        {idx + 1}
+      </span>
 
-      <button onClick={() => onOpen(h)} className="flex-1 flex flex-col gap-1 text-left min-w-0">
-        <div className="flex items-center gap-2">
-          <span className="badge badge-blue shrink-0">{h.code}</span>
-          <span className="text-white font-bold truncate" style={{ fontSize: '14px' }}>{h.name}</span>
+      {/* Song info */}
+      <button onClick={() => onOpen(h)} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '6px', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span className="badge badge-blue" style={{ flexShrink: 0 }}>{h.code}</span>
+          <span style={{ color: '#fff', fontWeight: 700, fontSize: '15px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{h.name}</span>
         </div>
         <span style={{ color: transposedKey !== h.key ? 'var(--accent)' : 'var(--muted2)', fontSize: '12px', fontFamily: 'JetBrains Mono' }}>
-          Key of {transposedKey} {transposedKey !== h.key ? `(orig. ${h.key})` : ''}
+          Key of {transposedKey}{transposedKey !== h.key ? ` (orig. ${h.key})` : ''}
         </span>
       </button>
 
-      <button onClick={() => onRemove(h.id)} className="btn btn-danger btn-sm shrink-0">Remove</button>
+      <button onClick={() => onRemove(h.id)} className="btn btn-danger btn-sm" style={{ flexShrink: 0 }}>Remove</button>
     </div>
   );
 }
@@ -190,29 +199,30 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
 
       {/* Setlist cards */}
       {setlists.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
           {setlists.map((s, i) => (
             <div key={s.id} onClick={() => handleSetActive(s.id === activeId ? null : s.id)}
-              className="fade-up rounded-2xl p-5 cursor-pointer transition-all"
+              className="fade-up rounded-2xl cursor-pointer transition-all"
               style={{
                 animationDelay: `${i * 0.04}s`,
+                padding: '22px 24px',
                 background: activeId === s.id ? 'rgba(246,201,14,0.1)' : 'var(--surface2)',
-                border: activeId === s.id ? '1px solid var(--border3)' : '1px solid var(--border)',
-                boxShadow: activeId === s.id ? '0 0 24px rgba(246,201,14,0.08)' : 'none',
+                border: activeId === s.id ? '2px solid var(--border3)' : '1px solid var(--border)',
+                boxShadow: activeId === s.id ? '0 0 28px rgba(246,201,14,0.1)' : 'none',
               }}>
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span style={{ fontSize: '20px', color: activeId === s.id ? 'var(--accent)' : 'var(--muted2)' }}>≡</span>
-                    <p className="text-white font-bold truncate" style={{ fontSize: '15px' }}>{s.name}</p>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                    <span style={{ fontSize: '22px', color: activeId === s.id ? 'var(--accent)' : 'var(--muted2)', lineHeight: 1 }}>≡</span>
+                    <p style={{ color: '#fff', fontWeight: 700, fontSize: '16px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.name}</p>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <span className="badge badge-blue">{s.hymnIds.length} hymns</span>
                     {s.createdAt && <span style={{ color: 'var(--muted)', fontSize: '12px' }}>{s.createdAt}</span>}
                   </div>
                 </div>
                 <button onClick={e => { e.stopPropagation(); deleteSetlist(s.id); }}
-                  className="btn btn-danger btn-sm shrink-0">✕</button>
+                  className="btn btn-danger btn-sm" style={{ flexShrink: 0 }}>✕</button>
               </div>
             </div>
           ))}
@@ -232,11 +242,10 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
         <div className="glow-card fade-up" style={{ borderRadius: '18px', overflow: 'hidden' }}>
 
           {/* Header */}
-          <div className="px-6 py-5 flex items-center justify-between gap-3 flex-wrap"
-            style={{ background: 'linear-gradient(135deg, var(--surface2), var(--surface))', borderBottom: '1px solid var(--border)' }}>
-            <div className="min-w-0">
-              <h2 className="text-white font-bold truncate" style={{ fontSize: '17px' }}>{active.name}</h2>
-              <p className="mt-1" style={{ color: 'var(--muted2)', fontSize: '13px' }}>
+          <div style={{ padding: '22px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap', background: 'linear-gradient(135deg, var(--surface2), var(--surface))', borderBottom: '1px solid var(--border)' }}>
+            <div style={{ minWidth: 0 }}>
+              <h2 style={{ color: '#fff', fontWeight: 800, fontSize: '18px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{active.name}</h2>
+              <p style={{ color: 'var(--muted2)', fontSize: '13px', marginTop: '5px' }}>
                 {activeHymns.length} {activeHymns.length === 1 ? 'hymn' : 'hymns'}
                 {active.createdAt && ` · ${active.createdAt}`}
               </p>
@@ -273,19 +282,21 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
 
           {/* Picker */}
           {showPicker && (
-            <div className="px-6 py-5" style={{ borderBottom: '1px solid var(--border)', background: 'var(--surface2)' }}>
+            <div style={{ padding: '22px 24px', borderBottom: '1px solid var(--border)', background: 'var(--surface2)' }}>
               <input value={search} onChange={e => setSearch(e.target.value)}
-                placeholder="Search hymns to add..." className="inp mb-4"
-                style={{ fontSize: '15px', padding: '13px 16px' }} />
-              <div className="flex flex-col gap-2 max-h-64 overflow-y-auto pr-1">
+                placeholder="Search hymns to add..." className="inp"
+                style={{ fontSize: '15px', padding: '13px 16px', marginBottom: '16px' }} />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '280px', overflowY: 'auto', paddingRight: '4px' }}>
                 {pickerHymns.length === 0
-                  ? <p className="text-center py-6" style={{ color: 'var(--muted)', fontSize: '14px' }}>All hymns added or no results.</p>
+                  ? <p style={{ textAlign: 'center', padding: '24px 0', color: 'var(--muted)', fontSize: '14px' }}>All hymns added or no results.</p>
                   : pickerHymns.map(h => (
                     <button key={h.id} onClick={() => addHymn(h.id)}
-                      className="hymn-row text-left" style={{ padding: '14px 16px', borderRadius: '12px' }}>
-                      <span className="badge badge-blue shrink-0">{h.code}</span>
-                      <span className="text-white font-semibold flex-1 truncate" style={{ fontSize: '14px' }}>{h.name}</span>
-                      <span style={{ color: 'var(--accent)', fontSize: '13px', fontWeight: 600 }}>+ Add</span>
+                      style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '16px 18px', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', cursor: 'pointer', textAlign: 'left', transition: 'border-color 0.15s' }}
+                      onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--border3)'}
+                      onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--border)'}>
+                      <span className="badge badge-blue" style={{ flexShrink: 0 }}>{h.code}</span>
+                      <span style={{ color: '#fff', fontWeight: 600, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '14px' }}>{h.name}</span>
+                      <span style={{ color: 'var(--accent)', fontSize: '13px', fontWeight: 700, flexShrink: 0 }}>+ Add</span>
                     </button>
                   ))
                 }
@@ -295,13 +306,13 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
 
           {/* Drag hint */}
           {activeHymns.length > 1 && (
-            <div style={{ padding: '10px 20px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ color: 'var(--muted)', fontSize: '12px' }}>⠿ Drag to reorder · Tap a song to open and set its key</span>
+            <div style={{ padding: '14px 24px 0', color: 'var(--muted)', fontSize: '12px' }}>
+              ⠿ Hold & drag to reorder · Tap a song to open and set its key
             </div>
           )}
 
           {/* Sortable hymn list */}
-          <div className="p-5 flex flex-col gap-3">
+          <div style={{ padding: '16px 20px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {activeHymns.length === 0 ? (
               <p className="text-center py-12" style={{ color: 'var(--muted)', fontSize: '14px' }}>
                 No hymns yet — tap "+ Add Hymns" above
