@@ -1,25 +1,91 @@
 import { useState } from 'react';
+import {
+  DndContext, closestCenter, PointerSensor, TouchSensor,
+  useSensor, useSensors, DragOverlay,
+} from '@dnd-kit/core';
+import {
+  SortableContext, verticalListSortingStrategy,
+  useSortable, arrayMove,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import ChordSheet from '../components/ChordSheet';
+import { generateSetlistPDF } from '../utils/setlistPDF';
+
+function SortableHymnRow({ h, idx, onOpen, onRemove, transposedKey }) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: h.id });
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.4 : 1,
+  };
+
+  return (
+    <div ref={setNodeRef} style={style}
+      className="hymn-row fade-up"
+      style={{ ...style, padding: '15px 16px', borderRadius: '12px', cursor: 'default' }}>
+
+      {/* Drag handle */}
+      <button {...attributes} {...listeners}
+        style={{ cursor: 'grab', padding: '4px 6px', color: 'var(--muted)', background: 'transparent', border: 'none', touchAction: 'none', flexShrink: 0 }}>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+          <circle cx="4" cy="3" r="1.2"/><circle cx="10" cy="3" r="1.2"/>
+          <circle cx="4" cy="7" r="1.2"/><circle cx="10" cy="7" r="1.2"/>
+          <circle cx="4" cy="11" r="1.2"/><circle cx="10" cy="11" r="1.2"/>
+        </svg>
+      </button>
+
+      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-lg font-bold"
+        style={{ background: 'var(--surface3)', color: 'var(--muted2)', fontSize: '12px' }}>{idx + 1}</span>
+
+      <button onClick={() => onOpen(h)} className="flex-1 flex flex-col gap-1 text-left min-w-0">
+        <div className="flex items-center gap-2">
+          <span className="badge badge-blue shrink-0">{h.code}</span>
+          <span className="text-white font-bold truncate" style={{ fontSize: '14px' }}>{h.name}</span>
+        </div>
+        <span style={{ color: transposedKey !== h.key ? 'var(--accent)' : 'var(--muted2)', fontSize: '12px', fontFamily: 'JetBrains Mono' }}>
+          Key of {transposedKey} {transposedKey !== h.key ? `(orig. ${h.key})` : ''}
+        </span>
+      </button>
+
+      <button onClick={() => onRemove(h.id)} className="btn btn-danger btn-sm shrink-0">Remove</button>
+    </div>
+  );
+}
+
+const SHARP = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const FLAT  = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+function shiftKey(key, steps) {
+  let idx = SHARP.indexOf(key); if (idx === -1) idx = FLAT.indexOf(key);
+  if (idx === -1) return key;
+  return SHARP[(idx + steps + 12) % 12];
+}
 
 export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, setFavorites }) {
   const [activeId, setActiveId] = useState(() => {
     try { return JSON.parse(localStorage.getItem('ccag_active_setlist')); } catch { return null; }
   });
+  const [newName, setNewName]   = useState('');
+  const [selected, setSelected] = useState(null);
+  const [search, setSearch]     = useState('');
+  const [showPicker, setShowPicker] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [savedMsg, setSavedMsg] = useState(false);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor,   { activationConstraint: { delay: 150, tolerance: 5 } })
+  );
 
   function handleSetActive(id) {
     setActiveId(id);
     localStorage.setItem('ccag_active_setlist', JSON.stringify(id));
   }
-  const [newName, setNewName] = useState('');
-  const [selected, setSelected] = useState(null);
-  const [search, setSearch] = useState('');
-  const [showPicker, setShowPicker] = useState(false);
 
   const active = setlists.find(s => s.id === activeId);
 
   function createSetlist() {
     if (!newName.trim()) return;
-    const s = { id: Date.now(), name: newName.trim(), hymnIds: [], createdAt: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) };
+    const s = { id: Date.now(), name: newName.trim(), hymnIds: [], transposeMap: {}, createdAt: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) };
     setSetlists(prev => [...prev, s]);
     handleSetActive(s.id);
     setNewName('');
@@ -44,12 +110,50 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
     ));
   }
 
+  function saveTranspose(hymnId, steps) {
+    setSetlists(prev => prev.map(s =>
+      s.id === activeId
+        ? { ...s, transposeMap: { ...(s.transposeMap ?? {}), [hymnId]: steps } }
+        : s
+    ));
+    setSavedMsg(true);
+    setTimeout(() => setSavedMsg(false), 2000);
+    setSelected(null);
+  }
+
+  function handleDragEnd(event) {
+    const { active: dragActive, over } = event;
+    if (!over || dragActive.id === over.id) return;
+    setSetlists(prev => prev.map(s => {
+      if (s.id !== activeId) return s;
+      const oldIdx = s.hymnIds.indexOf(dragActive.id);
+      const newIdx = s.hymnIds.indexOf(over.id);
+      return { ...s, hymnIds: arrayMove(s.hymnIds, oldIdx, newIdx) };
+    }));
+  }
+
+  async function downloadSetlistPDF() {
+    if (!active || activeHymns.length === 0) return;
+    setDownloading(true);
+    try {
+      const doc = await generateSetlistPDF(active, activeHymns);
+      const blob = doc.output('blob');
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href = url; a.download = `${active.name}.pdf`;
+      a.style.display = 'none';
+      document.body.appendChild(a); a.click();
+      setTimeout(() => { URL.revokeObjectURL(url); document.body.removeChild(a); }, 1000);
+    } finally { setDownloading(false); }
+  }
+
   function toggleFavorite(id) {
     setFavorites(prev => prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]);
   }
 
   const activeHymns = active
-    ? hymns.filter(h => active.hymnIds.includes(h.id)).sort((a, b) => active.hymnIds.indexOf(a.id) - active.hymnIds.indexOf(b.id))
+    ? hymns.filter(h => active.hymnIds.includes(h.id))
+        .sort((a, b) => active.hymnIds.indexOf(a.id) - active.hymnIds.indexOf(b.id))
     : [];
 
   const pickerHymns = hymns.filter(h =>
@@ -60,7 +164,7 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
   return (
     <div className="max-w-3xl mx-auto px-5 sm:px-8 py-8 page-content">
 
-      {/* ── Hero ── */}
+      {/* Hero */}
       <div className="hero-banner fade-up mb-8">
         <div className="relative z-10">
           <span className="badge badge-gold mb-3 block w-fit">Worship Sessions</span>
@@ -73,7 +177,7 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
         </div>
       </div>
 
-      {/* ── Create ── */}
+      {/* Create */}
       <div className="flex gap-3 mb-8 fade-up" style={{ animationDelay: '0.05s' }}>
         <input value={newName} onChange={e => setNewName(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && createSetlist()}
@@ -84,7 +188,7 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
         </button>
       </div>
 
-      {/* ── Setlist cards ── */}
+      {/* Setlist cards */}
       {setlists.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {setlists.map((s, i) => (
@@ -123,12 +227,12 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
         </div>
       )}
 
-      {/* ── Active setlist ── */}
+      {/* Active setlist */}
       {active && (
         <div className="glow-card fade-up" style={{ borderRadius: '18px', overflow: 'hidden' }}>
 
           {/* Header */}
-          <div className="px-6 py-5 flex items-center justify-between gap-4"
+          <div className="px-6 py-5 flex items-center justify-between gap-3 flex-wrap"
             style={{ background: 'linear-gradient(135deg, var(--surface2), var(--surface))', borderBottom: '1px solid var(--border)' }}>
             <div className="min-w-0">
               <h2 className="text-white font-bold truncate" style={{ fontSize: '17px' }}>{active.name}</h2>
@@ -137,12 +241,35 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
                 {active.createdAt && ` · ${active.createdAt}`}
               </p>
             </div>
-            <button onClick={() => setShowPicker(p => !p)}
-              className={`btn shrink-0 ${showPicker ? 'btn-secondary' : 'btn-primary'}`}
-              style={{ padding: '10px 18px' }}>
-              {showPicker ? '✕ Done' : '+ Add Hymns'}
-            </button>
+            <div className="flex gap-2 flex-wrap">
+              {activeHymns.length > 0 && (
+                <button onClick={downloadSetlistPDF} disabled={downloading}
+                  className="btn btn-primary" style={{ padding: '10px 16px', fontSize: '13px' }}>
+                  {downloading ? 'Generating…' : (
+                    <>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                      </svg>
+                      Download PDF
+                    </>
+                  )}
+                </button>
+              )}
+              <button onClick={() => setShowPicker(p => !p)}
+                className={`btn ${showPicker ? 'btn-secondary' : 'btn-ghost'}`}
+                style={{ padding: '10px 16px', fontSize: '13px' }}>
+                {showPicker ? '✕ Done' : '+ Add Hymns'}
+              </button>
+            </div>
           </div>
+
+          {/* Saved key toast */}
+          {savedMsg && (
+            <div style={{ background: 'rgba(246,201,14,0.12)', borderBottom: '1px solid var(--border3)', padding: '10px 20px', fontSize: '13px', color: 'var(--accent)', fontWeight: 600, textAlign: 'center' }}>
+              ✓ Transpose key saved to setlist
+            </div>
+          )}
 
           {/* Picker */}
           {showPicker && (
@@ -166,34 +293,48 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
             </div>
           )}
 
-          {/* Hymn list */}
+          {/* Drag hint */}
+          {activeHymns.length > 1 && (
+            <div style={{ padding: '10px 20px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ color: 'var(--muted)', fontSize: '12px' }}>⠿ Drag to reorder · Tap a song to open and set its key</span>
+            </div>
+          )}
+
+          {/* Sortable hymn list */}
           <div className="p-5 flex flex-col gap-3">
             {activeHymns.length === 0 ? (
               <p className="text-center py-12" style={{ color: 'var(--muted)', fontSize: '14px' }}>
                 No hymns yet — tap "+ Add Hymns" above
               </p>
-            ) : activeHymns.map((h, idx) => (
-              <div key={h.id} className="hymn-row fade-up" style={{ animationDelay: `${idx * 0.02}s`, padding: '15px 16px', borderRadius: '12px' }}>
-                <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-lg font-bold"
-                  style={{ background: 'var(--surface3)', color: 'var(--muted2)', fontSize: '12px' }}>{idx + 1}</span>
-                <button onClick={() => setSelected(h)} className="flex-1 flex flex-col gap-1 text-left min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="badge badge-blue shrink-0">{h.code}</span>
-                    <span className="text-white font-bold truncate" style={{ fontSize: '14px' }}>{h.name}</span>
-                  </div>
-                  <span style={{ color: 'var(--muted2)', fontSize: '12px', fontFamily: 'JetBrains Mono' }}>Key of {h.key}</span>
-                </button>
-                <button onClick={() => removeHymn(h.id)} className="btn btn-danger btn-sm shrink-0">Remove</button>
-              </div>
-            ))}
+            ) : (
+              <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+                <SortableContext items={activeHymns.map(h => h.id)} strategy={verticalListSortingStrategy}>
+                  {activeHymns.map((h, idx) => {
+                    const steps = active.transposeMap?.[h.id] ?? 0;
+                    const transposedKey = shiftKey(h.key, steps);
+                    return (
+                      <SortableHymnRow key={h.id} h={h} idx={idx}
+                        transposedKey={transposedKey}
+                        onOpen={h => setSelected(h)}
+                        onRemove={removeHymn} />
+                    );
+                  })}
+                </SortableContext>
+              </DndContext>
+            )}
           </div>
         </div>
       )}
 
       {selected && (
-        <ChordSheet hymn={selected} onClose={() => setSelected(null)}
+        <ChordSheet
+          hymn={selected}
+          onClose={() => setSelected(null)}
           isFavorite={favorites.includes(selected.id)}
-          onToggleFavorite={() => toggleFavorite(selected.id)} />
+          onToggleFavorite={() => toggleFavorite(selected.id)}
+          savedSteps={active?.transposeMap?.[selected.id] ?? 0}
+          onSaveTranspose={(steps) => saveTranspose(selected.id, steps)}
+        />
       )}
     </div>
   );

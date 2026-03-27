@@ -125,8 +125,8 @@ async function generatePDF(hymn, steps, fontSize) {
   return doc;
 }
 
-export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite }) {
-  const [steps, setSteps]       = useState(0);
+export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite, onSaveTranspose, savedSteps }) {
+  const [steps, setSteps]       = useState(savedSteps ?? 0);
   const [fontSize, setFontSize] = useState(17);
   const [saving, setSaving]     = useState(false);
   const currentKey = shiftKey(hymn.key, steps);
@@ -168,6 +168,13 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
               {isFavorite ? '★' : '☆'}
               <span className="hidden sm:inline" style={{ marginLeft: '4px' }}>{isFavorite ? 'Saved' : 'Save'}</span>
             </button>
+            {onSaveTranspose && (
+              <button onClick={() => onSaveTranspose(steps)}
+                className="btn btn-secondary"
+                style={{ padding: '10px 14px', fontSize: '13px' }}>
+                ✓ Save Key
+              </button>
+            )}
             <button onClick={saveAsPDF} disabled={saving} className="btn btn-primary" style={{ padding: '10px 16px', fontSize: '14px' }}>
               {saving ? 'Generating…' : (
                 <>

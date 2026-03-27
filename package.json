@@ -11,6 +11,9 @@
     "save": "git add . && git commit -m \"auto: update %date% %time%\" && git push"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@tailwindcss/vite": "^4.2.2",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
