@@ -185,13 +185,6 @@ async function generatePDF(hymn, steps, fontSize) {
     doc.setFontSize(8);
     doc.text('CCAG Chord Sheet App', pad, fY + 14);
 
-    // center — watermark
-    doc.setTextColor(...ACCENT);
-    doc.setFont('helvetica', 'bolditalic');
-    doc.setFontSize(8);
-    const wm = '© Developed By Enosh';
-    doc.text(wm, PW / 2 - doc.getTextWidth(wm) / 2, fY + 14);
-
     // right — page + key
     doc.setTextColor(...MUTED);
     doc.setFont('courier', 'normal');
@@ -343,7 +336,6 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
               <img src="/CCAG.jpeg" alt="CCAG" style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#fff', padding: '1px', objectFit: 'contain' }} />
               <span className="text-xs font-semibold" style={{ color: 'var(--muted2)', letterSpacing: '0.08em' }}>CCAG</span>
             </div>
-            <span className="text-xs italic" style={{ color: 'var(--accent)', fontWeight: 600 }}>© Developed By Enosh</span>
             <span className="text-xs font-mono" style={{ color: 'var(--muted)' }}>{hymn.code} · Key of {currentKey}</span>
           </div>
         </div>
