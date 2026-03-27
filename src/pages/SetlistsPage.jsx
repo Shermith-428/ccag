@@ -2,7 +2,14 @@ import { useState } from 'react';
 import ChordSheet from '../components/ChordSheet';
 
 export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, setFavorites }) {
-  const [activeId, setActiveId] = useState(null);
+  const [activeId, setActiveId] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('ccag_active_setlist')); } catch { return null; }
+  });
+
+  function handleSetActive(id) {
+    setActiveId(id);
+    localStorage.setItem('ccag_active_setlist', JSON.stringify(id));
+  }
   const [newName, setNewName] = useState('');
   const [selected, setSelected] = useState(null);
   const [search, setSearch] = useState('');
@@ -14,14 +21,14 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
     if (!newName.trim()) return;
     const s = { id: Date.now(), name: newName.trim(), hymnIds: [], createdAt: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) };
     setSetlists(prev => [...prev, s]);
-    setActiveId(s.id);
+    handleSetActive(s.id);
     setNewName('');
   }
 
   function deleteSetlist(id) {
     if (!confirm('Delete this setlist?')) return;
     setSetlists(prev => prev.filter(s => s.id !== id));
-    if (activeId === id) setActiveId(null);
+    if (activeId === id) handleSetActive(null);
   }
 
   function addHymn(hymnId) {
@@ -81,7 +88,7 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
       {setlists.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {setlists.map((s, i) => (
-            <div key={s.id} onClick={() => setActiveId(s.id === activeId ? null : s.id)}
+            <div key={s.id} onClick={() => handleSetActive(s.id === activeId ? null : s.id)}
               className="fade-up rounded-2xl p-5 cursor-pointer transition-all"
               style={{
                 animationDelay: `${i * 0.04}s`,
