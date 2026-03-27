@@ -135,7 +135,16 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
     setSaving(true);
     try {
       const doc = await generatePDF(hymn, steps, fontSize);
-      doc.save(`${hymn.code} - ${hymn.name}.pdf`);
+      const filename = `${hymn.code} - ${hymn.name}.pdf`;
+      const blob = doc.output('blob');
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { URL.revokeObjectURL(url); document.body.removeChild(a); }, 1000);
     } finally { setSaving(false); }
   }
 
