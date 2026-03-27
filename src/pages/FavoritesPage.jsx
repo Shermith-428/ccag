@@ -10,51 +10,48 @@ export default function FavoritesPage({ hymns, favorites, setFavorites }) {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-4 py-5 md:py-7 page-content">
+    <div className="max-w-3xl mx-auto px-5 sm:px-8 py-8 page-content">
 
-      {/* Hero */}
-      <div className="hero-banner fade-up mb-6">
+      {/* ── Hero ── */}
+      <div className="hero-banner fade-up mb-8">
         <div className="relative z-10">
-          <span className="badge badge-gold mb-2">★ Favorites</span>
-          <h1 className="font-black text-white mt-1" style={{ fontSize: 'clamp(22px, 4vw, 30px)' }}>
+          <span className="badge badge-gold mb-3 block w-fit">★ Favourites</span>
+          <h1 className="font-black text-white mb-2" style={{ fontSize: 'clamp(24px, 5vw, 36px)', lineHeight: 1.1 }}>
             Your <span className="gradient-text">Saved Hymns</span>
           </h1>
-          <p className="text-sm mt-1" style={{ color: 'var(--muted2)' }}>
+          <p style={{ color: 'var(--muted2)', fontSize: '15px' }}>
             {favHymns.length} {favHymns.length === 1 ? 'hymn' : 'hymns'} saved
           </p>
         </div>
       </div>
 
       {favHymns.length === 0 ? (
-        <div className="text-center py-20 fade-in">
-          <div className="text-5xl mb-4" style={{ opacity: 0.2 }}>☆</div>
-          <p className="font-semibold" style={{ color: 'var(--muted2)' }}>No favorites yet</p>
-          <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>
+        <div className="text-center py-24 fade-in">
+          <div className="text-6xl mb-5" style={{ opacity: 0.2 }}>☆</div>
+          <p className="font-bold text-lg" style={{ color: 'var(--muted2)' }}>No favourites yet</p>
+          <p className="mt-2" style={{ color: 'var(--muted)', fontSize: '14px' }}>
             Tap the ☆ star on any hymn to save it here
           </p>
         </div>
       ) : (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           {favHymns.map((h, i) => (
-            <div key={h.id} className="hymn-row fade-up" style={{ animationDelay: `${i * 0.02}s` }}>
+            <div key={h.id} className="hymn-row fade-up" style={{ animationDelay: `${i * 0.02}s`, padding: '16px 18px', borderRadius: '14px' }}>
               <button onClick={() => toggleFavorite(h.id)}
-                className="shrink-0 w-7 h-7 flex items-center justify-center rounded-lg transition-all"
-                style={{ color: 'var(--gold)', background: 'var(--gold-glow)', fontSize: '15px', lineHeight: 1 }}>
+                className="shrink-0 w-9 h-9 flex items-center justify-center rounded-xl transition-all"
+                style={{ color: 'var(--gold)', background: 'var(--gold-glow)', fontSize: '18px', lineHeight: 1 }}>
                 ★
               </button>
-              <button onClick={() => setSelected(h)} className="flex-1 flex items-center gap-3 text-left min-w-0">
-                <span className="badge badge-blue shrink-0">{h.code}</span>
-                <span className="text-white text-sm font-semibold truncate">{h.name}</span>
-                <div className="ml-auto shrink-0 flex items-center gap-2">
-                  <span className="hidden sm:flex items-center text-xs px-2 py-0.5 rounded-md"
-                    style={{ background: 'var(--surface3)', color: 'var(--muted2)', fontFamily: 'JetBrains Mono' }}>
-                    {h.key}
-                  </span>
-                  <svg className="hidden sm:block" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" strokeWidth="2">
-                    <path d="m9 18 6-6-6-6"/>
-                  </svg>
+              <button onClick={() => setSelected(h)} className="flex-1 flex flex-col gap-1 text-left min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className="badge badge-blue shrink-0">{h.code}</span>
+                  <span className="text-white font-bold truncate" style={{ fontSize: '15px' }}>{h.name}</span>
                 </div>
+                <span style={{ color: 'var(--muted2)', fontSize: '12px', fontFamily: 'JetBrains Mono' }}>Key of {h.key}</span>
               </button>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" strokeWidth="2">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
             </div>
           ))}
         </div>

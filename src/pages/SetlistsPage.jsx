@@ -51,60 +51,57 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
   );
 
   return (
-    <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-4 py-5 md:py-7 page-content">
+    <div className="max-w-3xl mx-auto px-5 sm:px-8 py-8 page-content">
 
-      {/* Header */}
-      <div className="hero-banner fade-up mb-6">
+      {/* ── Hero ── */}
+      <div className="hero-banner fade-up mb-8">
         <div className="relative z-10">
-          <span className="badge badge-purple mb-2">Worship Sessions</span>
-          <h1 className="font-black text-white mt-1" style={{ fontSize: 'clamp(22px, 4vw, 30px)' }}>
+          <span className="badge badge-purple mb-3 block w-fit">Worship Sessions</span>
+          <h1 className="font-black text-white mb-2" style={{ fontSize: 'clamp(24px, 5vw, 36px)', lineHeight: 1.1 }}>
             <span className="gradient-text">Setlists</span>
           </h1>
-          <p className="text-sm mt-1" style={{ color: 'var(--muted2)' }}>
-            {setlists.length} session{setlists.length !== 1 ? 's' : ''} · Organize your worship order
+          <p style={{ color: 'var(--muted2)', fontSize: '15px' }}>
+            {setlists.length} session{setlists.length !== 1 ? 's' : ''} · Organise your worship order
           </p>
         </div>
       </div>
 
-      {/* Create input */}
-      <div className="flex gap-2 mb-6 fade-up" style={{ animationDelay: '0.05s' }}>
-        <div className="relative flex-1">
-          <svg className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
-            width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" strokeWidth="2">
-            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-          </svg>
-          <input value={newName} onChange={e => setNewName(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && createSetlist()}
-            placeholder="e.g. 29th Sunday Worship Session..."
-            className="inp" style={{ paddingLeft: '40px' }} />
-        </div>
-        <button onClick={createSetlist} className="btn btn-primary">Create</button>
+      {/* ── Create ── */}
+      <div className="flex gap-3 mb-8 fade-up" style={{ animationDelay: '0.05s' }}>
+        <input value={newName} onChange={e => setNewName(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && createSetlist()}
+          placeholder="e.g. 29th Sunday Worship Session..."
+          className="inp flex-1" style={{ fontSize: '15px', padding: '14px 16px' }} />
+        <button onClick={createSetlist} className="btn btn-primary" style={{ padding: '14px 22px', fontSize: '14px' }}>
+          Create
+        </button>
       </div>
 
-      {/* Setlist cards grid */}
+      {/* ── Setlist cards ── */}
       {setlists.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {setlists.map((s, i) => (
-            <div key={s.id} className="fade-up" style={{ animationDelay: `${i * 0.04}s` }}>
-              <div onClick={() => setActiveId(s.id === activeId ? null : s.id)}
-                className="rounded-xl p-4 cursor-pointer transition-all"
-                style={activeId === s.id
-                  ? { background: 'rgba(79,142,247,0.1)', border: '1px solid var(--border3)', boxShadow: '0 0 20px rgba(79,142,247,0.1)' }
-                  : { background: 'var(--surface2)', border: '1px solid var(--border)', }}>
-                <div className="flex items-start justify-between gap-2">
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base" style={{ color: activeId === s.id ? 'var(--accent)' : 'var(--muted2)' }}>≡</span>
-                      <p className="text-white font-semibold text-sm truncate">{s.name}</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="badge badge-blue" style={{ fontSize: '10px' }}>{s.hymnIds.length} hymns</span>
-                      {s.createdAt && <span className="text-xs" style={{ color: 'var(--muted)' }}>{s.createdAt}</span>}
-                    </div>
+            <div key={s.id} onClick={() => setActiveId(s.id === activeId ? null : s.id)}
+              className="fade-up rounded-2xl p-5 cursor-pointer transition-all"
+              style={{
+                animationDelay: `${i * 0.04}s`,
+                background: activeId === s.id ? 'rgba(246,201,14,0.1)' : 'var(--surface2)',
+                border: activeId === s.id ? '1px solid var(--border3)' : '1px solid var(--border)',
+                boxShadow: activeId === s.id ? '0 0 24px rgba(246,201,14,0.08)' : 'none',
+              }}>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span style={{ fontSize: '20px', color: activeId === s.id ? 'var(--accent)' : 'var(--muted2)' }}>≡</span>
+                    <p className="text-white font-bold truncate" style={{ fontSize: '15px' }}>{s.name}</p>
                   </div>
-                  <button onClick={e => { e.stopPropagation(); deleteSetlist(s.id); }}
-                    className="btn btn-danger btn-xs shrink-0">✕</button>
+                  <div className="flex items-center gap-3">
+                    <span className="badge badge-blue">{s.hymnIds.length} hymns</span>
+                    {s.createdAt && <span style={{ color: 'var(--muted)', fontSize: '12px' }}>{s.createdAt}</span>}
+                  </div>
                 </div>
+                <button onClick={e => { e.stopPropagation(); deleteSetlist(s.id); }}
+                  className="btn btn-danger btn-sm shrink-0">✕</button>
               </div>
             </div>
           ))}
@@ -112,46 +109,49 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
       )}
 
       {setlists.length === 0 && (
-        <div className="text-center py-20 fade-in">
-          <div className="text-5xl mb-4" style={{ opacity: 0.2 }}>≡</div>
-          <p className="font-semibold" style={{ color: 'var(--muted2)' }}>No setlists yet</p>
-          <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>Create a session above to organize your worship order</p>
+        <div className="text-center py-24 fade-in">
+          <div className="text-6xl mb-5" style={{ opacity: 0.2 }}>≡</div>
+          <p className="font-bold text-lg" style={{ color: 'var(--muted2)' }}>No setlists yet</p>
+          <p className="mt-2" style={{ color: 'var(--muted)', fontSize: '14px' }}>Create a session above to organise your worship order</p>
         </div>
       )}
 
-      {/* Active setlist detail */}
+      {/* ── Active setlist ── */}
       {active && (
-        <div className="glow-card fade-up">
+        <div className="glow-card fade-up" style={{ borderRadius: '18px', overflow: 'hidden' }}>
+
           {/* Header */}
-          <div className="px-5 py-4 flex items-center justify-between gap-3"
-            style={{ borderBottom: '1px solid var(--border)', background: 'linear-gradient(135deg, var(--surface2), var(--surface))' }}>
+          <div className="px-6 py-5 flex items-center justify-between gap-4"
+            style={{ background: 'linear-gradient(135deg, var(--surface2), var(--surface))', borderBottom: '1px solid var(--border)' }}>
             <div className="min-w-0">
-              <h2 className="text-white font-bold truncate">{active.name}</h2>
-              <p className="text-xs mt-0.5" style={{ color: 'var(--muted2)' }}>
+              <h2 className="text-white font-bold truncate" style={{ fontSize: '17px' }}>{active.name}</h2>
+              <p className="mt-1" style={{ color: 'var(--muted2)', fontSize: '13px' }}>
                 {activeHymns.length} {activeHymns.length === 1 ? 'hymn' : 'hymns'}
                 {active.createdAt && ` · ${active.createdAt}`}
               </p>
             </div>
             <button onClick={() => setShowPicker(p => !p)}
-              className={`btn btn-sm shrink-0 ${showPicker ? 'btn-secondary' : 'btn-primary'}`}>
+              className={`btn shrink-0 ${showPicker ? 'btn-secondary' : 'btn-primary'}`}
+              style={{ padding: '10px 18px' }}>
               {showPicker ? '✕ Done' : '+ Add Hymns'}
             </button>
           </div>
 
           {/* Picker */}
           {showPicker && (
-            <div className="px-5 py-4" style={{ borderBottom: '1px solid var(--border)', background: 'var(--surface2)' }}>
+            <div className="px-6 py-5" style={{ borderBottom: '1px solid var(--border)', background: 'var(--surface2)' }}>
               <input value={search} onChange={e => setSearch(e.target.value)}
-                placeholder="Search hymns to add..." className="inp mb-3" />
-              <div className="flex flex-col gap-1.5 max-h-56 overflow-y-auto pr-1">
+                placeholder="Search hymns to add..." className="inp mb-4"
+                style={{ fontSize: '15px', padding: '13px 16px' }} />
+              <div className="flex flex-col gap-2 max-h-64 overflow-y-auto pr-1">
                 {pickerHymns.length === 0
-                  ? <p className="text-xs text-center py-5" style={{ color: 'var(--muted)' }}>All hymns added or no results.</p>
+                  ? <p className="text-center py-6" style={{ color: 'var(--muted)', fontSize: '14px' }}>All hymns added or no results.</p>
                   : pickerHymns.map(h => (
                     <button key={h.id} onClick={() => addHymn(h.id)}
-                      className="hymn-row text-left" style={{ cursor: 'pointer' }}>
+                      className="hymn-row text-left" style={{ padding: '14px 16px', borderRadius: '12px' }}>
                       <span className="badge badge-blue shrink-0">{h.code}</span>
-                      <span className="text-white text-sm flex-1 truncate">{h.name}</span>
-                      <span className="text-xs shrink-0" style={{ color: 'var(--accent)' }}>+ Add</span>
+                      <span className="text-white font-semibold flex-1 truncate" style={{ fontSize: '14px' }}>{h.name}</span>
+                      <span style={{ color: 'var(--accent)', fontSize: '13px', fontWeight: 600 }}>+ Add</span>
                     </button>
                   ))
                 }
@@ -160,23 +160,23 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
           )}
 
           {/* Hymn list */}
-          <div className="p-4 flex flex-col gap-2">
+          <div className="p-5 flex flex-col gap-3">
             {activeHymns.length === 0 ? (
-              <p className="text-center py-10 text-sm" style={{ color: 'var(--muted)' }}>
-                No hymns yet — click "+ Add Hymns" above
+              <p className="text-center py-12" style={{ color: 'var(--muted)', fontSize: '14px' }}>
+                No hymns yet — tap "+ Add Hymns" above
               </p>
             ) : activeHymns.map((h, idx) => (
-              <div key={h.id} className="hymn-row fade-up" style={{ animationDelay: `${idx * 0.02}s` }}>
-                <span className="text-xs w-5 text-center shrink-0 font-mono" style={{ color: 'var(--muted)' }}>{idx + 1}</span>
-                <button onClick={() => setSelected(h)} className="flex-1 flex items-center gap-3 text-left min-w-0">
-                  <span className="badge badge-blue shrink-0">{h.code}</span>
-                  <span className="text-white text-sm font-semibold truncate">{h.name}</span>
-                  <span className="text-xs shrink-0 ml-auto hidden sm:block"
-                    style={{ color: 'var(--muted2)', fontFamily: 'JetBrains Mono', background: 'var(--surface3)', padding: '2px 8px', borderRadius: '6px' }}>
-                    {h.key}
-                  </span>
+              <div key={h.id} className="hymn-row fade-up" style={{ animationDelay: `${idx * 0.02}s`, padding: '15px 16px', borderRadius: '12px' }}>
+                <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-lg font-bold"
+                  style={{ background: 'var(--surface3)', color: 'var(--muted2)', fontSize: '12px' }}>{idx + 1}</span>
+                <button onClick={() => setSelected(h)} className="flex-1 flex flex-col gap-1 text-left min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="badge badge-blue shrink-0">{h.code}</span>
+                    <span className="text-white font-bold truncate" style={{ fontSize: '14px' }}>{h.name}</span>
+                  </div>
+                  <span style={{ color: 'var(--muted2)', fontSize: '12px', fontFamily: 'JetBrains Mono' }}>Key of {h.key}</span>
                 </button>
-                <button onClick={() => removeHymn(h.id)} className="btn btn-danger btn-xs shrink-0">Remove</button>
+                <button onClick={() => removeHymn(h.id)} className="btn btn-danger btn-sm shrink-0">Remove</button>
               </div>
             ))}
           </div>
