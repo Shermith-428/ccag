@@ -57,21 +57,7 @@ export default function HymnsPage({ hymns, setHymns, favorites, setFavorites }) 
           )}
         </div>
 
-        {/* Stats */}
-        <div className="relative z-10 grid grid-cols-3 gap-3 mt-6">
-          {[
-            { icon: '♪', label: 'Total', value: hymns.length, bg: 'rgba(246,201,14,0.1)' },
-            { icon: '★', label: 'Favourites', value: favorites.length, bg: 'rgba(246,201,14,0.07)' },
-            { icon: '≡', label: 'Showing', value: filtered.length, bg: 'rgba(246,201,14,0.05)' },
-          ].map(s => (
-            <div key={s.label} className="rounded-2xl p-4 flex flex-col gap-1"
-              style={{ background: s.bg, border: '1px solid rgba(246,201,14,0.12)' }}>
-              <span style={{ color: 'var(--accent)', fontSize: '20px' }}>{s.icon}</span>
-              <p className="font-black text-white" style={{ fontSize: 'clamp(20px, 4vw, 28px)', lineHeight: 1 }}>{s.value}</p>
-              <p style={{ color: 'var(--muted2)', fontSize: '12px' }}>{s.label}</p>
-            </div>
-          ))}
-        </div>
+
       </div>
 
       {/* ── Search ── */}
