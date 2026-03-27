@@ -150,8 +150,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
             {/* Watermark footer */}
             <div className="mt-4 pt-4 flex items-center justify-between" style={{ borderTop: '1px solid var(--border)' }}>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded flex items-center justify-center text-white font-black text-xs"
-                  style={{ background: 'linear-gradient(135deg, #4f8ef7, #818cf8)', fontSize: '9px' }}>C</div>
+                <img src="/CCAG.jpeg" alt="CCAG" style={{ width: '20px', height: '20px', borderRadius: '4px', background: '#fff', padding: '1px', objectFit: 'contain' }} />
                 <span className="text-xs font-semibold" style={{ color: 'var(--muted)', letterSpacing: '0.08em' }}>CCAG</span>
               </div>
               <span className="text-xs font-mono" style={{ color: 'var(--muted)' }}>{hymn.code} · Key of {currentKey}</span>

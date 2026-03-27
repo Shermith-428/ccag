@@ -40,11 +40,9 @@ export default function Navbar({ page, setPage }) {
         <div className="max-w-5xl mx-auto px-6 xl:px-8 h-16 flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-black text-white text-sm"
-              style={{ background: 'linear-gradient(135deg, #4f8ef7, #818cf8)', boxShadow: '0 0 20px rgba(79,142,247,0.4)' }}>
-              C
-              <div className="absolute inset-0 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.15), transparent)' }} />
-            </div>
+            <img src="/CCAG.jpeg" alt="CCAG Logo"
+              className="rounded-xl object-contain"
+              style={{ width: '38px', height: '38px', background: '#fff', padding: '2px' }} />
             <div className="flex flex-col leading-none">
               <span className="font-black text-white" style={{ letterSpacing: '0.15em', fontSize: '15px' }}>CCAG</span>
               <span style={{ color: 'var(--muted2)', fontSize: '10px', letterSpacing: '0.08em' }}>CHORD SHEET APP</span>
@@ -82,8 +80,9 @@ export default function Navbar({ page, setPage }) {
       <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 md:px-6 h-14 md:h-16"
         style={{ background: 'rgba(5,7,15,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)' }}>
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg md:rounded-xl flex items-center justify-center font-black text-white"
-            style={{ background: 'linear-gradient(135deg, #4f8ef7, #818cf8)', boxShadow: '0 0 14px rgba(79,142,247,0.35)', fontSize: '13px' }}>C</div>
+          <img src="/CCAG.jpeg" alt="CCAG Logo"
+            className="rounded-lg object-contain"
+            style={{ width: '34px', height: '34px', background: '#fff', padding: '2px' }} />
           <div className="flex flex-col leading-none">
             <span className="font-black text-white" style={{ letterSpacing: '0.15em', fontSize: '14px' }}>CCAG</span>
             <span className="hidden md:block" style={{ color: 'var(--muted2)', fontSize: '10px', letterSpacing: '0.06em' }}>CHORD SHEET APP</span>
