@@ -204,7 +204,7 @@ async function generatePDF(hymn, steps, fontSize) {
 
 export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite }) {
   const [steps, setSteps]       = useState(0);
-  const [fontSize, setFontSize] = useState(13);
+  const [fontSize, setFontSize] = useState(16);
   const [saving, setSaving]     = useState(false);
 
   const currentKey = shiftKey(hymn.key, steps);
@@ -220,12 +220,12 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
   }
 
   return (
-    <div className="overlay fade-in">
-      <div className="max-w-2xl mx-auto px-3 sm:px-4 md:px-6 lg:px-4 py-4 pb-28 lg:pb-10">
+    <div className="overlay fade-in" style={{ background: 'rgba(0,0,0,0.92)' }}>
+      <div className="w-full min-h-screen flex flex-col">
 
         {/* ── Toolbar ── */}
-        <div className="sticky top-3 z-10 mb-4 fade-up rounded-2xl p-2 sm:p-3 flex flex-wrap gap-2 items-center"
-          style={{ background: 'rgba(12,16,24,0.95)', backdropFilter: 'blur(16px)', border: '1px solid var(--border2)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}>
+        <div className="z-10 mb-0 px-3 sm:px-6 py-2 sm:py-3 flex flex-wrap gap-2 items-center"
+          style={{ background: 'rgba(12,16,24,0.98)', backdropFilter: 'blur(16px)', borderBottom: '1px solid var(--border2)', boxShadow: '0 4px 24px rgba(0,0,0,0.5)' }}>
 
           <button onClick={onClose} className="btn btn-secondary btn-sm">
             <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -280,20 +280,20 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
         </div>
 
         {/* ── Sheet preview ── */}
-        <div className="fade-up rounded-2xl overflow-hidden"
-          style={{ background: 'var(--surface)', border: '1px solid var(--border2)', animationDelay: '0.05s' }}>
+        <div className="fade-up flex-1 overflow-hidden"
+          style={{ background: 'var(--surface)', animationDelay: '0.05s' }}>
 
           {/* Header */}
-          <div className="relative px-6 py-5 overflow-hidden"
+          <div className="relative px-4 sm:px-8 py-4 sm:py-6 overflow-hidden"
             style={{ background: 'linear-gradient(135deg, #0f1420 0%, #1a2235 100%)', borderBottom: '1px solid var(--border)' }}>
             <div className="absolute top-0 left-0 right-0 h-0.5"
               style={{ background: 'linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent)' }} />
             <div className="relative z-10 flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
-                <img src="/CCAG.jpeg" alt="CCAG" style={{ width: '44px', height: '44px', borderRadius: '10px', background: '#fff', padding: '2px', objectFit: 'contain' }} />
+                <img src="/CCAG.jpeg" alt="CCAG" style={{ width: '48px', height: '48px', borderRadius: '10px', background: '#fff', padding: '2px', objectFit: 'contain' }} />
                 <div>
                   <span className="badge badge-blue mb-1.5 block w-fit">{hymn.code}</span>
-                  <h1 className="text-white font-black leading-tight" style={{ fontSize: `${Math.max(fontSize + 4, 18)}px` }}>
+                  <h1 className="text-white font-black leading-tight" style={{ fontSize: `clamp(18px, 3vw, 28px)` }}>
                     {hymn.name}
                   </h1>
                 </div>
@@ -309,8 +309,9 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
             </div>
           </div>
 
-          {/* Body — white background */}
-          <div className="px-6 py-5" style={{ background: '#ffffff', fontSize: `${fontSize}px` }}>
+          {/* Body — white background, full width, scrollable */}
+          <div className="px-4 sm:px-8 md:px-12 lg:px-16 py-6 pb-28 lg:pb-10"
+            style={{ background: '#ffffff', fontSize: `${fontSize}px`, overflowX: 'auto' }}>
             {hymn.content.map((sec, si) => (
               <div key={si} className="mb-6">
                 <div className="section-label" style={{ color: '#92400e', background: '#fef3c7', borderColor: '#fbbf24' }}>
@@ -337,7 +338,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
           </div>
 
           {/* Footer */}
-          <div className="px-6 py-3 flex items-center justify-between"
+          <div className="px-4 sm:px-8 py-3 flex items-center justify-between flex-wrap gap-2"
             style={{ background: 'linear-gradient(135deg, #0f1420 0%, #1a2235 100%)', borderTop: '1px solid var(--border)' }}>
             <div className="flex items-center gap-2">
               <img src="/CCAG.jpeg" alt="CCAG" style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#fff', padding: '1px', objectFit: 'contain' }} />

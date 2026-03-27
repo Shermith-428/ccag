@@ -2,6 +2,7 @@ import './App.css';
 import './index.css';
 import { AdminProvider } from './context/AdminContext';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import HymnsPage from './pages/HymnsPage';
 import FavoritesPage from './pages/FavoritesPage';
 import SetlistsPage from './pages/SetlistsPage';
@@ -17,9 +18,9 @@ function App() {
   return (
     <AdminProvider>
       <div className="bg-mesh" />
-      <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
+      <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Navbar page={page} setPage={setPage} />
-        <main>
+        <main style={{ flex: 1 }}>
           {page === 'hymns' && (
             <HymnsPage hymns={hymns} setHymns={setHymns} favorites={favorites} setFavorites={setFavorites} />
           )}
@@ -31,6 +32,7 @@ function App() {
             <FavoritesPage hymns={hymns} favorites={favorites} setFavorites={setFavorites} />
           )}
         </main>
+        <Footer />
       </div>
     </AdminProvider>
   );
