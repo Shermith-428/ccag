@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="page-content" style={{
-      background: 'linear-gradient(135deg, #0f1420 0%, #1a2235 100%)',
+      background: 'linear-gradient(135deg, #252c33 0%, #2e3740 100%)',
       borderTop: '1px solid var(--border2)',
       padding: '14px 24px',
       display: 'flex',

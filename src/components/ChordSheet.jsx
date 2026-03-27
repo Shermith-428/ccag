@@ -285,7 +285,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
 
           {/* Header */}
           <div className="relative px-4 sm:px-8 py-4 sm:py-6 overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, #0f1420 0%, #1a2235 100%)', borderBottom: '1px solid var(--border)' }}>
+            style={{ background: 'linear-gradient(135deg, #252c33 0%, #2e3740 100%)', borderBottom: '1px solid var(--border)' }}>
             <div className="absolute top-0 left-0 right-0 h-0.5"
               style={{ background: 'linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent)' }} />
             <div className="relative z-10 flex items-start justify-between gap-4">
@@ -337,9 +337,8 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
             ))}
           </div>
 
-          {/* Footer */}
           <div className="px-4 sm:px-8 py-3 flex items-center justify-between flex-wrap gap-2"
-            style={{ background: 'linear-gradient(135deg, #0f1420 0%, #1a2235 100%)', borderTop: '1px solid var(--border)' }}>
+            style={{ background: 'linear-gradient(135deg, #252c33 0%, #2e3740 100%)', borderTop: '1px solid var(--border)' }}>
             <div className="flex items-center gap-2">
               <img src="/CCAG.jpeg" alt="CCAG" style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#fff', padding: '1px', objectFit: 'contain' }} />
               <span className="text-xs font-semibold" style={{ color: 'var(--muted2)', letterSpacing: '0.08em' }}>CCAG</span>
