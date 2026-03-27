@@ -21,215 +21,261 @@ export async function generateSetlistPDF(setlist, hymns) {
   }
 
   const { jsPDF } = window.jspdf;
-  const doc  = new jsPDF({ unit: 'pt', format: 'a4' });
-  const PW   = doc.internal.pageSize.getWidth();
-  const PH   = doc.internal.pageSize.getHeight();
-  const pad  = 40;
-  const bodyW = PW - pad * 2;
+  const doc   = new jsPDF({ unit: 'pt', format: 'a4' });
+  const PW    = doc.internal.pageSize.getWidth();   // 595
+  const PH    = doc.internal.pageSize.getHeight();  // 842
+  const PAD   = 50;   // left/right margin
+  const BODY_W = PW - PAD * 2;
 
-  const DARK  = [37, 44, 51];
-  const ACCENT= [246, 201, 14];
-  const RED   = [220, 38, 38];
-  const BLACK = [20, 20, 20];
-  const WHITE = [255, 255, 255];
-  const MUTED = [120, 130, 150];
-  const GREY  = [240, 242, 245];
+  // ── Colours ──
+  const DARK   = [37, 44, 51];
+  const ACCENT = [246, 201, 14];
+  const RED    = [210, 30, 30];
+  const BLACK  = [25, 25, 25];
+  const WHITE  = [255, 255, 255];
+  const MUTED  = [130, 140, 155];
+  const MUTED2 = [180, 188, 198];
 
-  // ── load logo ──
-  let logoDataUrl = null;
+  const coverSongs = hymns
+    .filter(h => setlist.hymnIds.includes(h.id))
+    .sort((a, b) => setlist.hymnIds.indexOf(a.id) - setlist.hymnIds.indexOf(b.id));
 
-  // ════════════════════════════
+  // ══════════════════════════════════════
   // COVER PAGE
-  // ════════════════════════════
+  // ══════════════════════════════════════
   doc.setFillColor(...DARK);
   doc.rect(0, 0, PW, PH, 'F');
 
-  // gold top bar
+  // top accent bar
   doc.setFillColor(...ACCENT);
-  doc.rect(0, 0, PW, 6, 'F');
+  doc.rect(0, 0, PW, 8, 'F');
 
-  // logo removed per user request
-
-  // CCAG
+  // CCAG heading — vertically centred in top third
   doc.setTextColor(...ACCENT);
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(28);
-  doc.text('CCAG', PW / 2, 160, { align: 'center' });
+  doc.setFontSize(42);
+  doc.text('CCAG', PW / 2, 120, { align: 'center' });
 
   doc.setTextColor(...MUTED);
   doc.setFont('helvetica', 'normal');
-  doc.setFontSize(11);
-  doc.text('CHORD SHEET APP', PW / 2, 178, { align: 'center' });
+  doc.setFontSize(12);
+  doc.text('CHORD SHEET APP', PW / 2, 142, { align: 'center' });
 
   // divider
   doc.setDrawColor(...ACCENT);
-  doc.setLineWidth(1);
-  doc.line(pad * 2, 200, PW - pad * 2, 200);
+  doc.setLineWidth(0.8);
+  doc.line(PAD * 2, 165, PW - PAD * 2, 165);
 
   // setlist name
   doc.setTextColor(...WHITE);
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(26);
-  const nameLines = doc.splitTextToSize(setlist.name, PW - pad * 3);
-  doc.text(nameLines, PW / 2, 240, { align: 'center' });
+  doc.setFontSize(30);
+  const nameLines = doc.splitTextToSize(setlist.name, PW - PAD * 2);
+  doc.text(nameLines, PW / 2, 210, { align: 'center', lineHeightFactor: 1.4 });
 
   // date
+  const afterName = 210 + nameLines.length * 42;
   if (setlist.createdAt) {
-    doc.setTextColor(...MUTED);
+    doc.setTextColor(...MUTED2);
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(12);
-    doc.text(setlist.createdAt, PW / 2, 240 + nameLines.length * 32, { align: 'center' });
+    doc.setFontSize(13);
+    doc.text(setlist.createdAt, PW / 2, afterName, { align: 'center' });
   }
 
-  // song list on cover
-  const coverSongs = hymns.filter(h => setlist.hymnIds.includes(h.id))
-    .sort((a, b) => setlist.hymnIds.indexOf(a.id) - setlist.hymnIds.indexOf(b.id));
-
-  let cy = 310 + nameLines.length * 20;
+  // "SONGS IN THIS SETLIST" label
+  let cy = afterName + 50;
   doc.setTextColor(...MUTED);
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(10);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
   doc.text('SONGS IN THIS SETLIST', PW / 2, cy, { align: 'center' });
-  cy += 20;
+  cy += 6;
 
+  // thin divider under label
+  doc.setDrawColor(...MUTED);
+  doc.setLineWidth(0.4);
+  doc.line(PAD * 2, cy, PW - PAD * 2, cy);
+  cy += 18;
+
+  // song rows
   coverSongs.forEach((h, i) => {
+    if (cy > PH - 80) return;
     const steps = setlist.transposeMap?.[h.id] ?? 0;
     const key   = shiftKey(h.key, steps);
+
+    // row number
+    doc.setTextColor(...ACCENT);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text(`${i + 1}`, PAD * 2, cy);
+
+    // song name
     doc.setTextColor(...WHITE);
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(12);
-    doc.text(`${i + 1}.  ${h.name}`, PW / 2 - 80, cy);
+    doc.setFontSize(13);
+    doc.text(h.name, PAD * 2 + 22, cy, { maxWidth: BODY_W - 80 });
+
+    // key badge
     doc.setTextColor(...ACCENT);
     doc.setFont('courier', 'bold');
     doc.setFontSize(11);
-    doc.text(`Key: ${key}`, PW / 2 + 80, cy);
-    cy += 22;
-    if (cy > PH - 60) { cy = PH - 60; }
+    doc.text(`Key: ${key}`, PW - PAD * 2, cy, { align: 'right' });
+
+    cy += 26;
+
+    // subtle row divider
+    doc.setDrawColor(60, 70, 80);
+    doc.setLineWidth(0.3);
+    doc.line(PAD * 2, cy - 8, PW - PAD * 2, cy - 8);
   });
 
-  // gold bottom bar
+  // bottom accent bar
   doc.setFillColor(...ACCENT);
-  doc.rect(0, PH - 6, PW, 6, 'F');
+  doc.rect(0, PH - 8, PW, 8, 'F');
 
-  // ════════════════════════════
+  // ══════════════════════════════════════
   // SONG PAGES
-  // ════════════════════════════
+  // ══════════════════════════════════════
+  const HEADER_H  = 80;
+  const FOOTER_H  = 32;
+  const BODY_TOP  = HEADER_H + 20;
+  const BODY_BOT  = PH - FOOTER_H - 16;
+  const CHORD_FS  = 12;
+  const LYRIC_FS  = 12;
+  const CHORD_LH  = 16;
+  const LYRIC_LH  = 20;
+  const SEC_H     = 28;  // section label block height
+  const SEC_GAP   = 20;  // gap after section
+
   coverSongs.forEach((hymn, songIdx) => {
     doc.addPage();
     const steps    = setlist.transposeMap?.[hymn.id] ?? 0;
     const keyLabel = shiftKey(hymn.key, steps);
 
-    // song header
-    doc.setFillColor(...DARK);
-    doc.rect(0, 0, PW, 90, 'F');
-    doc.setFillColor(...ACCENT);
-    doc.rect(0, 0, PW, 4, 'F');
+    function drawHeader() {
+      doc.setFillColor(...DARK);
+      doc.rect(0, 0, PW, HEADER_H, 'F');
+      doc.setFillColor(...ACCENT);
+      doc.rect(0, 0, PW, 5, 'F');
 
-    // song number badge
-    doc.setFillColor(...ACCENT);
-    doc.circle(pad + 14, 40, 14, 'F');
-    doc.setTextColor(...DARK);
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(13);
-    doc.text(`${songIdx + 1}`, pad + 14, 45, { align: 'center' });
+      // song number circle
+      doc.setFillColor(...ACCENT);
+      doc.circle(PAD + 16, HEADER_H / 2, 16, 'F');
+      doc.setTextColor(...DARK);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(14);
+      doc.text(`${songIdx + 1}`, PAD + 16, HEADER_H / 2 + 5, { align: 'center' });
 
-    // song name
-    doc.setTextColor(...WHITE);
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(20);
-    doc.text(hymn.name, pad + 36, 36, { maxWidth: PW - pad * 2 - 80 });
+      // song name
+      doc.setTextColor(...WHITE);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(22);
+      doc.text(hymn.name, PAD + 42, HEADER_H / 2 - 6, { maxWidth: PW - PAD * 2 - 90 });
 
-    // code + setlist name
-    doc.setTextColor(...MUTED);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(9);
-    doc.text(`${hymn.code}  ·  ${setlist.name}`, pad + 36, 52);
-
-    // key box
-    doc.setFillColor(50, 60, 70);
-    doc.roundedRect(PW - pad - 48, 16, 48, 48, 6, 6, 'F');
-    doc.setDrawColor(...ACCENT);
-    doc.setLineWidth(1.5);
-    doc.roundedRect(PW - pad - 48, 16, 48, 48, 6, 6, 'S');
-    doc.setTextColor(...ACCENT);
-    doc.setFont('courier', 'bold');
-    doc.setFontSize(18);
-    doc.text(keyLabel, PW - pad - 24 - doc.getTextWidth(keyLabel) / 2, 46);
-    doc.setTextColor(...MUTED);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8);
-    doc.text('KEY', PW - pad - 24 - doc.getTextWidth('KEY') / 2, 58);
-
-    if (steps !== 0) {
+      // code + setlist
       doc.setTextColor(...MUTED);
-      doc.setFontSize(7);
-      doc.text(`(orig. ${hymn.key})`, PW - pad - 24 - doc.getTextWidth(`(orig. ${hymn.key})`) / 2, 68);
-    }
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.text(`${hymn.code}  ·  ${setlist.name}`, PAD + 42, HEADER_H / 2 + 12);
 
-    let y = 108;
-
-    function checkPage() {
-      if (y > PH - 60) {
-        doc.addPage();
-        doc.setFillColor(...DARK);
-        doc.rect(0, 0, PW, 24, 'F');
-        doc.setTextColor(...MUTED);
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8);
-        doc.text(`${hymn.code}  ·  ${hymn.name}  ·  Key of ${keyLabel}  ·  ${setlist.name}`, pad, 16);
-        y = 36;
+      // key box
+      const KBX = PW - PAD - 52;
+      doc.setFillColor(55, 65, 78);
+      doc.roundedRect(KBX, 14, 52, 52, 7, 7, 'F');
+      doc.setDrawColor(...ACCENT);
+      doc.setLineWidth(1.5);
+      doc.roundedRect(KBX, 14, 52, 52, 7, 7, 'S');
+      doc.setTextColor(...ACCENT);
+      doc.setFont('courier', 'bold');
+      doc.setFontSize(20);
+      doc.text(keyLabel, KBX + 26, 46, { align: 'center' });
+      doc.setTextColor(...MUTED);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.5);
+      doc.text('KEY', KBX + 26, 58, { align: 'center' });
+      if (steps !== 0) {
+        doc.setFontSize(7);
+        doc.text(`orig. ${hymn.key}`, KBX + 26, 68, { align: 'center' });
       }
     }
 
-    hymn.content.forEach(sec => {
-      checkPage();
-      const lbl = sec.section.toUpperCase();
-      const lw  = doc.getTextWidth(lbl) + 20;
-      doc.setFillColor(254, 243, 199);
-      doc.roundedRect(pad, y, lw, 16, 8, 8, 'F');
-      doc.setDrawColor(...ACCENT);
-      doc.setLineWidth(0.5);
-      doc.roundedRect(pad, y, lw, 16, 8, 8, 'S');
-      doc.setTextColor(146, 64, 14);
-      doc.setFont('helvetica', 'bold');
+    function drawFooter() {
+      doc.setFillColor(...DARK);
+      doc.rect(0, PH - FOOTER_H, PW, FOOTER_H, 'F');
+      doc.setFillColor(...ACCENT);
+      doc.rect(0, PH - 4, PW, 4, 'F');
+      doc.setTextColor(...MUTED);
+      doc.setFont('helvetica', 'normal');
       doc.setFontSize(8);
-      doc.text(lbl, pad + 10, y + 11);
-      y += 24;
+      doc.text('CCAG Chord Sheet App', PAD, PH - 10);
+      doc.setFont('courier', 'normal');
+      doc.text(`${hymn.code}  ·  Key of ${keyLabel}  ·  ${setlist.name}`, PW - PAD, PH - 10, { align: 'right' });
+    }
+
+    drawHeader();
+    drawFooter();
+
+    let y = BODY_TOP;
+
+    function checkPage() {
+      if (y > BODY_BOT) {
+        drawFooter();
+        doc.addPage();
+        // continuation mini header
+        doc.setFillColor(...DARK);
+        doc.rect(0, 0, PW, 28, 'F');
+        doc.setFillColor(...ACCENT);
+        doc.rect(0, 0, PW, 3, 'F');
+        doc.setTextColor(...MUTED);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.text(`${hymn.code}  ·  ${hymn.name}  ·  Key of ${keyLabel}`, PAD, 18);
+        drawFooter();
+        y = 44;
+      }
+    }
+
+    hymn.content.forEach((sec, si) => {
+      // extra gap between sections (not before first)
+      if (si > 0) { y += 10; checkPage(); }
+
+      checkPage();
+
+      // section label pill
+      const lbl = sec.section.toUpperCase();
+      const lw  = doc.getTextWidth(lbl) + 22;
+      doc.setFillColor(254, 243, 199);
+      doc.roundedRect(PAD, y, lw, 18, 9, 9, 'F');
+      doc.setDrawColor(246, 201, 14);
+      doc.setLineWidth(0.5);
+      doc.roundedRect(PAD, y, lw, 18, 9, 9, 'S');
+      doc.setTextColor(120, 53, 15);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.5);
+      doc.text(lbl, PAD + 11, y + 12);
+      y += SEC_H;
 
       sec.lines.forEach(line => {
         checkPage();
         if (line.chords) {
           doc.setTextColor(...RED);
           doc.setFont('courier', 'bold');
-          doc.setFontSize(11);
-          doc.text(transposeLine(line.chords, steps), pad, y);
-          y += 15;
+          doc.setFontSize(CHORD_FS);
+          doc.text(transposeLine(line.chords, steps), PAD, y);
+          y += CHORD_LH;
         }
         if (line.lyric) {
           doc.setTextColor(...BLACK);
           doc.setFont('helvetica', 'normal');
-          doc.setFontSize(11);
-          doc.text(line.lyric, pad, y, { maxWidth: bodyW });
-          y += 11 * 1.7 * doc.splitTextToSize(line.lyric, bodyW).length;
+          doc.setFontSize(LYRIC_FS);
+          const wrapped = doc.splitTextToSize(line.lyric, BODY_W);
+          doc.text(wrapped, PAD, y);
+          y += LYRIC_LH * wrapped.length;
         }
-        if (!line.chords && !line.lyric) y += 5;
+        if (!line.chords && !line.lyric) y += 6;
       });
-      y += 14;
-    });
 
-    // footer on each song page
-    const total = doc.internal.getNumberOfPages();
-    doc.setPage(doc.internal.getNumberOfPages());
-    doc.setFillColor(...DARK);
-    doc.rect(0, PH - 30, PW, 30, 'F');
-    doc.setFillColor(...ACCENT);
-    doc.rect(0, PH - 3, PW, 3, 'F');
-    doc.setTextColor(...MUTED);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8);
-    doc.text('CCAG Chord Sheet App', pad, PH - 12);
-    doc.setFont('courier', 'normal');
-    doc.text(`${hymn.code}  ·  Key of ${keyLabel}`, PW - pad, PH - 12, { align: 'right' });
+      y += SEC_GAP;
+    });
   });
 
   return doc;
