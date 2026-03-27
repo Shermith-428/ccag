@@ -37,13 +37,6 @@ export async function generateSetlistPDF(setlist, hymns) {
 
   // ── load logo ──
   let logoDataUrl = null;
-  try {
-    const img = new Image(); img.crossOrigin = 'anonymous';
-    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = '/CCAG.jpeg'; });
-    const c = document.createElement('canvas'); c.width = 80; c.height = 80;
-    c.getContext('2d').drawImage(img, 0, 0, 80, 80);
-    logoDataUrl = c.toDataURL('image/jpeg');
-  } catch {}
 
   // ════════════════════════════
   // COVER PAGE
@@ -55,45 +48,44 @@ export async function generateSetlistPDF(setlist, hymns) {
   doc.setFillColor(...ACCENT);
   doc.rect(0, 0, PW, 6, 'F');
 
-  // logo
-  if (logoDataUrl) doc.addImage(logoDataUrl, 'JPEG', PW / 2 - 40, 120, 80, 80);
+  // logo removed per user request
 
   // CCAG
   doc.setTextColor(...ACCENT);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(28);
-  doc.text('CCAG', PW / 2, 230, { align: 'center' });
+  doc.text('CCAG', PW / 2, 160, { align: 'center' });
 
   doc.setTextColor(...MUTED);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(11);
-  doc.text('CHORD SHEET APP', PW / 2, 248, { align: 'center' });
+  doc.text('CHORD SHEET APP', PW / 2, 178, { align: 'center' });
 
   // divider
   doc.setDrawColor(...ACCENT);
   doc.setLineWidth(1);
-  doc.line(pad * 2, 270, PW - pad * 2, 270);
+  doc.line(pad * 2, 200, PW - pad * 2, 200);
 
   // setlist name
   doc.setTextColor(...WHITE);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(26);
   const nameLines = doc.splitTextToSize(setlist.name, PW - pad * 3);
-  doc.text(nameLines, PW / 2, 310, { align: 'center' });
+  doc.text(nameLines, PW / 2, 240, { align: 'center' });
 
   // date
   if (setlist.createdAt) {
     doc.setTextColor(...MUTED);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(12);
-    doc.text(setlist.createdAt, PW / 2, 310 + nameLines.length * 32, { align: 'center' });
+    doc.text(setlist.createdAt, PW / 2, 240 + nameLines.length * 32, { align: 'center' });
   }
 
   // song list on cover
   const coverSongs = hymns.filter(h => setlist.hymnIds.includes(h.id))
     .sort((a, b) => setlist.hymnIds.indexOf(a.id) - setlist.hymnIds.indexOf(b.id));
 
-  let cy = 380 + nameLines.length * 20;
+  let cy = 310 + nameLines.length * 20;
   doc.setTextColor(...MUTED);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(10);
@@ -133,27 +125,25 @@ export async function generateSetlistPDF(setlist, hymns) {
     doc.setFillColor(...ACCENT);
     doc.rect(0, 0, PW, 4, 'F');
 
-    if (logoDataUrl) doc.addImage(logoDataUrl, 'JPEG', pad, 12, 56, 56);
-
     // song number badge
     doc.setFillColor(...ACCENT);
-    doc.circle(pad + 28, 40, 14, 'F');
+    doc.circle(pad + 14, 40, 14, 'F');
     doc.setTextColor(...DARK);
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(13);
-    doc.text(`${songIdx + 1}`, pad + 28, 45, { align: 'center' });
+    doc.text(`${songIdx + 1}`, pad + 14, 45, { align: 'center' });
 
     // song name
     doc.setTextColor(...WHITE);
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(20);
-    doc.text(hymn.name, pad + 76, 36, { maxWidth: PW - pad * 2 - 120 });
+    doc.text(hymn.name, pad + 36, 36, { maxWidth: PW - pad * 2 - 80 });
 
     // code + setlist name
     doc.setTextColor(...MUTED);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(9);
-    doc.text(`${hymn.code}  ·  ${setlist.name}`, pad + 76, 52);
+    doc.text(`${hymn.code}  ·  ${setlist.name}`, pad + 36, 52);
 
     // key box
     doc.setFillColor(50, 60, 70);
