@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react';
-import html2canvas from 'html2canvas';
+import { useState } from 'react';
 import { transposeLine } from '../utils/transpose';
 
 const SHARP = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
@@ -12,21 +11,224 @@ function shiftKey(key, steps) {
   return SHARP[(idx + steps + 12) % 12];
 }
 
+function drawRoundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+async function buildImage(hymn, steps, fontSize) {
+  const scale  = 2;
+  const W      = 640;
+  const pad    = 40;
+  const mono   = `${fontSize}px "JetBrains Mono", monospace`;
+  const sans   = `${fontSize}px "Inter", sans-serif`;
+  const BG     = '#05070f';
+  const SURF   = '#0c1018';
+  const SURF2  = '#111827';
+  const ACCENT = '#4f8ef7';
+  const GOLD   = '#fbbf24';
+  const TEXT   = '#d1d5db';
+  const MUTED  = '#6b7280';
+  const BORDER = 'rgba(255,255,255,0.10)';
+
+  // ── measure height first ──
+  const tmpC = document.createElement('canvas');
+  const tmpX = tmpC.getContext('2d');
+  let measuredH = pad + 20; // top padding
+
+  // header block height
+  measuredH += 30 + fontSize + 4 + 28 + 24; // badge + title + key box + gap
+
+  hymn.content.forEach(sec => {
+    measuredH += 28; // section label
+    sec.lines.forEach(line => {
+      if (line.chords) measuredH += fontSize * 1.5;
+      if (line.lyric)  measuredH += fontSize * 2.1;
+      if (!line.chords && !line.lyric) measuredH += 8;
+    });
+    measuredH += 20; // section gap
+  });
+
+  measuredH += 48; // footer
+  measuredH += pad; // bottom padding
+
+  // ── draw ──
+  const canvas = document.createElement('canvas');
+  canvas.width  = W * scale;
+  canvas.height = measuredH * scale;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(scale, scale);
+
+  // background
+  ctx.fillStyle = BG;
+  ctx.fillRect(0, 0, W, measuredH);
+
+  // card
+  ctx.fillStyle = SURF;
+  drawRoundRect(ctx, pad / 2, pad / 2, W - pad, measuredH - pad, 16);
+  ctx.fill();
+  ctx.strokeStyle = BORDER;
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // top accent line
+  const grad = ctx.createLinearGradient(pad / 2, 0, W - pad / 2, 0);
+  grad.addColorStop(0, 'transparent');
+  grad.addColorStop(0.5, ACCENT);
+  grad.addColorStop(1, 'transparent');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(pad / 2 + 16, pad / 2);
+  ctx.lineTo(W - pad / 2 - 16, pad / 2);
+  ctx.stroke();
+
+  let y = pad + 20;
+  const x = pad + 12;
+  const innerW = W - pad * 2 - 24;
+
+  // ── header section bg ──
+  ctx.fillStyle = SURF2;
+  drawRoundRect(ctx, pad / 2, pad / 2, W - pad, 110, 16);
+  ctx.fill();
+
+  // code badge
+  ctx.fillStyle = 'rgba(79,142,247,0.15)';
+  drawRoundRect(ctx, x, y, 70, 22, 11);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(79,142,247,0.25)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.fillStyle = ACCENT;
+  ctx.font = `bold ${fontSize - 2}px "JetBrains Mono", monospace`;
+  ctx.textAlign = 'left';
+  ctx.fillText(hymn.code, x + 10, y + 15);
+  y += 30;
+
+  // title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `900 ${fontSize + 6}px "Inter", sans-serif`;
+  ctx.fillText(hymn.name, x, y + fontSize);
+  y += fontSize + 10;
+
+  // key box
+  const keyBoxX = W - pad - 12 - 52;
+  ctx.fillStyle = 'rgba(79,142,247,0.12)';
+  drawRoundRect(ctx, keyBoxX, pad + 20, 52, 52, 10);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(79,142,247,0.3)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.fillStyle = ACCENT;
+  ctx.font = `900 ${fontSize + 4}px "JetBrains Mono", monospace`;
+  ctx.textAlign = 'center';
+  ctx.fillText(shiftKey(hymn.key, steps), keyBoxX + 26, pad + 20 + 34);
+  ctx.textAlign = 'left';
+
+  // divider
+  y = pad + 120;
+  ctx.strokeStyle = BORDER;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad / 2, y);
+  ctx.lineTo(W - pad / 2, y);
+  ctx.stroke();
+  y += 20;
+
+  // ── sections ──
+  hymn.content.forEach(sec => {
+    // section label pill
+    ctx.fillStyle = 'rgba(251,191,36,0.12)';
+    const labelW = ctx.measureText(sec.section.toUpperCase()).width + 24;
+    drawRoundRect(ctx, x, y, labelW, 20, 10);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(251,191,36,0.2)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.fillStyle = GOLD;
+    ctx.font = `700 10px "Inter", sans-serif`;
+    ctx.letterSpacing = '0.1em';
+    ctx.fillText(sec.section.toUpperCase(), x + 12, y + 14);
+    ctx.letterSpacing = '0';
+    y += 28;
+
+    sec.lines.forEach(line => {
+      if (line.chords) {
+        ctx.fillStyle = ACCENT;
+        ctx.font = mono;
+        ctx.fillText(transposeLine(line.chords, steps), x, y + fontSize);
+        y += fontSize * 1.5;
+      }
+      if (line.lyric) {
+        ctx.fillStyle = TEXT;
+        ctx.font = sans;
+        ctx.fillText(line.lyric, x, y + fontSize);
+        y += fontSize * 2.1;
+      }
+      if (!line.chords && !line.lyric) y += 8;
+    });
+    y += 20;
+  });
+
+  // ── footer ──
+  y += 4;
+  ctx.strokeStyle = BORDER;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad / 2, y);
+  ctx.lineTo(W - pad / 2, y);
+  ctx.stroke();
+  y += 14;
+
+  ctx.fillStyle = MUTED;
+  ctx.font = `600 11px "Inter", sans-serif`;
+  ctx.fillText('CCAG Chord Sheet App', x, y + 11);
+  ctx.textAlign = 'right';
+  ctx.font = `400 11px "JetBrains Mono", monospace`;
+  ctx.fillText(`${hymn.code} · Key of ${shiftKey(hymn.key, steps)}`, W - pad - 12, y + 11);
+  ctx.textAlign = 'left';
+
+  return canvas;
+}
+
 export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite }) {
-  const [steps, setSteps] = useState(0);
+  const [steps, setSteps]     = useState(0);
   const [fontSize, setFontSize] = useState(15);
-  const [saving, setSaving] = useState(false);
-  const sheetRef = useRef();
+  const [saving, setSaving]   = useState(false);
 
   const currentKey = shiftKey(hymn.key, steps);
 
   async function saveAsImage() {
     setSaving(true);
     try {
-      const canvas = await html2canvas(sheetRef.current, { backgroundColor: '#05070f', scale: 2, useCORS: true, logging: false });
+      const canvas = await buildImage(hymn, steps, fontSize);
+      const dataUrl = canvas.toDataURL('image/png');
+
+      // mobile share sheet if available
+      if (navigator.share && navigator.canShare) {
+        try {
+          const blob = await (await fetch(dataUrl)).blob();
+          const file = new File([blob], `${hymn.code} - ${hymn.name}.png`, { type: 'image/png' });
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file], title: `${hymn.code} - ${hymn.name}` });
+            return;
+          }
+        } catch { /* fall through to download */ }
+      }
+
+      // desktop / fallback download
       const link = document.createElement('a');
       link.download = `${hymn.code} - ${hymn.name}.png`;
-      link.href = canvas.toDataURL('image/png');
+      link.href = dataUrl;
       link.click();
     } finally {
       setSaving(false);
@@ -60,9 +262,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
               </span>
             </div>
             <button onClick={() => setSteps(s => s + 1)} className="btn btn-secondary btn-sm" style={{ padding: '5px 10px' }}>+</button>
-            {steps !== 0 && (
-              <button onClick={() => setSteps(0)} className="btn btn-ghost btn-sm">↺</button>
-            )}
+            {steps !== 0 && <button onClick={() => setSteps(0)} className="btn btn-ghost btn-sm">↺</button>}
           </div>
 
           <div className="w-px h-5 hidden sm:block" style={{ background: 'var(--border2)' }} />
@@ -95,14 +295,13 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
           </div>
         </div>
 
-        {/* ── Sheet ── */}
-        <div ref={sheetRef} className="fade-up rounded-2xl overflow-hidden"
+        {/* ── Sheet (display only) ── */}
+        <div className="fade-up rounded-2xl overflow-hidden"
           style={{ background: 'var(--surface)', border: '1px solid var(--border2)', animationDelay: '0.05s' }}>
 
-          {/* Sheet header */}
+          {/* Header */}
           <div className="relative px-6 py-5 overflow-hidden"
             style={{ background: 'linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%)', borderBottom: '1px solid var(--border)' }}>
-            {/* Glow blob */}
             <div className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none"
               style={{ background: 'radial-gradient(circle, rgba(79,142,247,0.08) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
             <div className="relative z-10 flex items-start justify-between gap-4">
@@ -123,7 +322,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
             </div>
           </div>
 
-          {/* Sheet body */}
+          {/* Body */}
           <div className="px-6 py-5" style={{ fontSize: `${fontSize}px` }}>
             {hymn.content.map((sec, si) => (
               <div key={si} className="mb-7">
@@ -147,7 +346,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
               </div>
             ))}
 
-            {/* Watermark footer */}
+            {/* Footer */}
             <div className="mt-4 pt-4 flex items-center justify-between" style={{ borderTop: '1px solid var(--border)' }}>
               <div className="flex items-center gap-2">
                 <img src="/CCAG.jpeg" alt="CCAG" style={{ width: '20px', height: '20px', borderRadius: '4px', background: '#fff', padding: '1px', objectFit: 'contain' }} />
