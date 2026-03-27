@@ -426,3 +426,48 @@ body {
   .hero-banner  { padding: 40px 40px; }
   .hymn-row     { padding: 14px 20px; }
 }
+
+/* ── Landscape phones (short height, wide width) ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Compact hero */
+  .hero-banner  { padding: 14px 20px; margin-bottom: 14px; }
+
+  /* Floating nav: move to right side vertically to save vertical space */
+  .bottom-nav {
+    bottom: auto;
+    top: 50%;
+    left: auto;
+    right: 16px;
+    transform: translateY(-50%);
+    flex-direction: column;
+    min-width: unset;
+    max-width: unset;
+    width: auto;
+    padding: 10px 8px;
+    gap: 4px;
+    border-radius: 99px;
+  }
+  .bottom-nav-item {
+    padding: 10px 12px;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .bottom-nav-item .nav-icon  { font-size: 16px; }
+  .bottom-nav-item .nav-label { font-size: 9px; }
+
+  /* Page content: add right padding so content doesn't go under side nav */
+  .page-content { padding-bottom: 20px; padding-right: 72px; }
+
+  /* Compact rows */
+  .hymn-row { padding: 10px 14px; gap: 10px; }
+  .inp      { padding: 9px 12px; font-size: 13px; }
+  .btn      { padding: 7px 14px; font-size: 12px; }
+  .btn-sm   { padding: 5px 10px; font-size: 11px; }
+}
+
+/* Landscape tablets (iPad landscape etc) — already handled by 1024px+ desktop */
+@media (min-height: 500px) and (max-height: 768px) and (orientation: landscape) and (min-width: 640px) and (max-width: 1023px) {
+  .hero-banner  { padding: 20px 24px; margin-bottom: 18px; }
+  .page-content { padding-bottom: 90px; }
+  .bottom-nav   { bottom: 16px; }
+}

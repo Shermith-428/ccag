@@ -77,8 +77,8 @@ export default function Navbar({ page, setPage }) {
       </nav>
 
       {/* ── Tablet + Phone top bar (< 1024px) ── */}
-      <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 md:px-6 h-14 md:h-16"
-        style={{ background: 'rgba(37,44,51,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)' }}>
+      <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 md:px-6"
+        style={{ background: 'rgba(37,44,51,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', height: 'clamp(48px, 8vh, 64px)' }}>
         <div className="flex items-center gap-2.5">
           <img src="/CCAG.jpeg" alt="CCAG Logo"
             className="rounded-lg object-contain"
