@@ -16,7 +16,7 @@ export default function FavoritesPage({ hymns, favorites, setFavorites }) {
       <div className="hero-banner fade-up mb-8">
         <div className="relative z-10">
           <span className="badge badge-gold mb-3 block w-fit">★ Favourites</span>
-          <h1 className="font-black text-white mb-2" style={{ fontSize: 'clamp(24px, 5vw, 36px)', lineHeight: 1.1 }}>
+          <h1 className="font-black mb-2" style={{ fontSize: 'clamp(24px, 5vw, 36px)', lineHeight: 1.1 }}>
             Your <span className="gradient-text">Saved Hymns</span>
           </h1>
           <p style={{ color: 'var(--muted2)', fontSize: '15px' }}>
