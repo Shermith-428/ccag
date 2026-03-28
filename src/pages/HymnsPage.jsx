@@ -40,7 +40,7 @@ export default function HymnsPage({ hymns, setHymns, favorites, setFavorites }) 
           <div>
             <span className="badge badge-blue mb-3 block w-fit">Hymn Library</span>
             <h1 className="font-black mb-2" style={{ fontSize: 'clamp(24px, 5vw, 36px)', lineHeight: 1.1 }}>
-              <span className="gradient-text">Worship</span> <span style={{ color: 'var(--text)' }}>Chord Sheets</span>
+              <span className="gradient-text">Worship Chord Sheets</span>
             </h1>
             <p style={{ color: 'var(--muted2)', fontSize: '15px' }}>
               {hymns.length} songs available
