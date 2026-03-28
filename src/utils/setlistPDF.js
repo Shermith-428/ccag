@@ -28,7 +28,7 @@ export async function generateSetlistPDF(setlist, hymns) {
   const BODY_W = PW - PAD * 2;
 
   // ── Colours ──
-  const DARK   = [37, 44, 51];
+  const DARK  = [26, 18, 16];
   const ACCENT = [246, 201, 14];
   const RED    = [210, 30, 30];
   const BLACK  = [25, 25, 25];

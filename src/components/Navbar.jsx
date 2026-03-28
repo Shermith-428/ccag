@@ -20,10 +20,10 @@ export default function Navbar({ page, setPage }) {
   }
 
   const activeStyle = {
-    background: 'rgba(246,201,14,0.15)',
+    background: 'rgba(241,113,65,0.15)',
     color: 'var(--accent)',
-    border: '1px solid rgba(246,201,14,0.35)',
-    boxShadow: '0 0 14px rgba(246,201,14,0.15)',
+    border: '1px solid rgba(241,113,65,0.4)',
+    boxShadow: '0 0 14px rgba(241,113,65,0.2)',
   };
   const inactiveStyle = {
     background: 'transparent',
@@ -35,7 +35,7 @@ export default function Navbar({ page, setPage }) {
     <>
       {/* ── Desktop top nav (≥ 1024px) ── */}
       <nav className="hidden lg:block sticky top-0 z-40"
-        style={{ background: 'rgba(37,44,51,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', position: 'relative' }}>
+        style={{ background: 'rgba(26,18,16,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', position: 'relative' }}>
         <div className="nav-glow" />
         <div className="max-w-5xl mx-auto px-6 xl:px-8 h-16 flex items-center justify-between gap-4">
           {/* Logo */}
@@ -78,7 +78,7 @@ export default function Navbar({ page, setPage }) {
 
       {/* ── Tablet + Phone top bar (< 1024px) ── */}
       <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 md:px-6"
-        style={{ background: 'rgba(37,44,51,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', height: 'clamp(48px, 8vh, 64px)' }}>
+        style={{ background: 'rgba(26,18,16,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', height: 'clamp(48px, 8vh, 64px)' }}>
         <div className="flex items-center gap-2.5">
           <img src="/CCAG.jpeg" alt="CCAG Logo"
             className="rounded-lg object-contain"
@@ -118,12 +118,12 @@ export default function Navbar({ page, setPage }) {
       {showLogin && (
         <div className="overlay flex items-center justify-center p-4">
           <div className="fade-up w-full max-w-sm"
-            style={{ background: 'var(--surface)', border: '1px solid var(--border3)', borderRadius: '20px', boxShadow: '0 0 60px rgba(246,201,14,0.12), 0 32px 64px rgba(0,0,0,0.6)' }}>
+            style={{ background: 'var(--surface)', border: '1px solid var(--border3)', borderRadius: '20px', boxShadow: '0 0 60px rgba(241,113,65,0.15), 0 32px 64px rgba(0,0,0,0.6)' }}>
             <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent)', borderRadius: '20px 20px 0 0' }} />
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(246,201,14,0.15)', border: '1px solid var(--border3)' }}>
+                  style={{ background: 'rgba(241,113,65,0.15)', border: '1px solid var(--border3)' }}>
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2">
                     <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                   </svg>

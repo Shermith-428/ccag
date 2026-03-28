@@ -10,10 +10,10 @@ import useLocalStorage from './hooks/useLocalStorage';
 import defaultHymns from './data/hymns';
 
 function App() {
-  const [page, setPage]         = useLocalStorage('ccag_page', 'hymns');
-  const [hymns, setHymns]       = useLocalStorage('ccag_hymns', defaultHymns);
+  const [page, setPage] = useLocalStorage('ccag_page', 'hymns');
+  const [hymns, setHymns] = useLocalStorage('ccag_hymns', defaultHymns);
   const [favorites, setFavorites] = useLocalStorage('ccag_favorites', []);
-  const [setlists, setSetlists]   = useLocalStorage('ccag_setlists', []);
+  const [setlists, setSetlists] = useLocalStorage('ccag_setlists', []);
 
   return (
     <AdminProvider>
