@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { parseHymnText } from '../utils/parseHymn';
 
+const labels = { songCode: 'Song Code', songName: 'Song Name', key: 'Key' };
+const t = (k) => labels[k] ?? k;
+
 export default function HymnForm({ onSave, onClose, existing }) {
   const [code, setCode] = useState(existing?.code ?? '');
   const [name, setName] = useState(existing?.name ?? '');
@@ -47,15 +50,15 @@ export default function HymnForm({ onSave, onClose, existing }) {
 
           <div className="flex gap-3">
             <div className="flex-1">
-              <label className="text-xs font-medium mb-1.5 block" style={{ color: 'var(--muted2)' }}>Song Code</label>
+              <label className="text-xs font-medium mb-1.5 block" style={{ color: 'var(--muted2)' }}>{t('songCode')}</label>
               <input value={code} onChange={e => setCode(e.target.value)} placeholder="C-018" className="inp" />
             </div>
             <div className="flex-[2]">
-              <label className="text-xs font-medium mb-1.5 block" style={{ color: 'var(--muted2)' }}>Song Name</label>
+              <label className="text-xs font-medium mb-1.5 block" style={{ color: 'var(--muted2)' }}>{t('songName')}</label>
               <input value={name} onChange={e => setName(e.target.value)} placeholder="Thanks & Praise" className="inp" />
             </div>
             <div className="w-20">
-              <label className="text-xs font-medium mb-1.5 block" style={{ color: 'var(--muted2)' }}>Key</label>
+              <label className="text-xs font-medium mb-1.5 block" style={{ color: 'var(--muted2)' }}>{t('key')}</label>
               <input value={key} onChange={e => setKey(e.target.value)} placeholder="Bb" className="inp" />
             </div>
           </div>

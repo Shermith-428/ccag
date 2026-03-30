@@ -15,6 +15,8 @@ export async function generateSetlistPDF(setlist, hymns) {
     await new Promise((res, rej) => {
       const s = document.createElement('script');
       s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+      s.integrity = 'sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==';
+      s.crossOrigin = 'anonymous';
       s.onload = res; s.onerror = rej;
       document.head.appendChild(s);
     });
