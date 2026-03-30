@@ -4,24 +4,23 @@ const hymns = [
     id: 1,
     code: "C-001",
     name: "We Fall Down",
-    key: "C",
+    key: "E",
     content: [
       {
         section: "Verse 1",
         lines: [
-          { chords: "C              G", lyric: "We fall down, we lay our crowns" },
-          { chords: "Am         F", lyric: "At the feet of Jesus" },
-          { chords: "C              G", lyric: "The greatness of mercy and love" },
-          { chords: "Am    F    C", lyric: "At the feet of Jesus" },
+          { chords: "E                    B        C#min", lyric: "We fall down we lay our crowns" },
+          { chords: "     A  E/G#  Bsus    B", lyric: "At the fe  -  et of Je    - sus" },
+          { chords: "     E                    B        C#min", lyric: "The greatness of His mercy and Love" },
+          { chords: "     A  E/G#  Bsus    B", lyric: "At the fe  - et of Je   -   sus" },
         ],
       },
       {
         section: "Chorus",
         lines: [
-          { chords: "F         C", lyric: "And we cry holy, holy, holy" },
-          { chords: "F         G", lyric: "We cry holy, holy, holy" },
-          { chords: "F         C       Am", lyric: "We cry holy, holy, holy" },
-          { chords: "F    G    C", lyric: "Is the Lamb" },
+          { chords: "E/G#     A    E/G#  Bsus   B", lyric: "We  cry Holy Holy Ho    ly" },
+          { chords: "E/G#     A    E/G#  Bsus   B", lyric: "We  cry Holy Holy Ho    ly" },
+          { chords: "E/G#     A    C#m   Bsus   B        A2       B", lyric: "We  cry Holy Holy Ho    ly  Is the Lamb" },
         ],
       },
     ],
