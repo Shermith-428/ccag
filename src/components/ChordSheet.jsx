@@ -127,7 +127,7 @@ async function generatePDF(hymn, steps, fontSize) {
 
 export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite, onSaveTranspose, savedSteps }) {
   const [steps, setSteps]       = useState(savedSteps ?? 0);
-  const [fontSize, setFontSize] = useState(17);
+  const [fontSize, setFontSize] = useState(10);
   const [saving, setSaving]     = useState(false);
   const currentKey = shiftKey(hymn.key, steps);
 
@@ -210,7 +210,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
           {/* Font size */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ color: 'var(--muted2)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.06em' }}>SIZE</span>
-            <button onClick={() => setFontSize(s => Math.max(12, s - 1))} className="btn btn-secondary" style={{ padding: '8px 14px', fontSize: '14px', fontWeight: 700 }}>A−</button>
+            <button onClick={() => setFontSize(s => Math.max(10, s - 1))} className="btn btn-secondary" style={{ padding: '8px 14px', fontSize: '14px', fontWeight: 700 }}>A−</button>
             <span style={{ color: 'var(--muted2)', fontFamily: 'JetBrains Mono', fontSize: '14px', minWidth: '28px', textAlign: 'center' }}>{fontSize}</span>
             <button onClick={() => setFontSize(s => Math.min(26, s + 1))} className="btn btn-secondary" style={{ padding: '8px 14px', fontSize: '14px', fontWeight: 700 }}>A+</button>
           </div>
@@ -254,14 +254,14 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
                 <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
                   <div style={{ minWidth: 'max-content' }}>
                     {sec.lines.map((line, li) => (
-                      <div key={li} style={{ marginBottom: '4px' }}>
+                      <div key={li} style={{ marginBottom: '2px' }}>
                         {line.chords && (
-                          <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#dc2626', fontWeight: 700, fontSize: `${fontSize}px`, lineHeight: 1.5, whiteSpace: 'pre', letterSpacing: '0.02em' }}>
+                          <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#dc2626', fontWeight: 700, fontSize: `${fontSize}px`, lineHeight: 1.4, whiteSpace: 'pre', letterSpacing: '0.02em' }}>
                             {transposeLine(line.chords, steps)}
                           </div>
                         )}
                         {line.lyric && (
-                          <div style={{ color: '#111827', fontSize: `${fontSize}px`, lineHeight: 1.9, whiteSpace: 'pre' }}>
+                          <div style={{ color: '#111827', fontSize: `${fontSize}px`, lineHeight: 1.8, whiteSpace: 'pre', fontFamily: 'Inter, sans-serif' }}>
                             {line.lyric}
                           </div>
                         )}
