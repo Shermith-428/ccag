@@ -250,21 +250,24 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
                 <div className="section-label" style={{ color: '#92400e', background: '#fef3c7', borderColor: '#fbbf24', marginBottom: '14px' }}>
                   {sec.section}
                 </div>
-                <div>
-                  {sec.lines.map((line, li) => (
-                    <div key={li} style={{ marginBottom: '4px' }}>
-                      {line.chords && (
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#dc2626', fontWeight: 700, fontSize: `${fontSize}px`, lineHeight: 1.5, whiteSpace: 'pre', letterSpacing: '0.02em' }}>
-                          {transposeLine(line.chords, steps)}
-                        </div>
-                      )}
-                      {line.lyric && (
-                        <div style={{ color: '#111827', fontSize: `${fontSize}px`, lineHeight: 1.9, whiteSpace: 'pre-wrap' }}>
-                          {line.lyric}
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                {/* Horizontal scroll wrapper keeps chord alignment intact on small screens */}
+                <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+                  <div style={{ minWidth: 'max-content' }}>
+                    {sec.lines.map((line, li) => (
+                      <div key={li} style={{ marginBottom: '4px' }}>
+                        {line.chords && (
+                          <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#dc2626', fontWeight: 700, fontSize: `${fontSize}px`, lineHeight: 1.5, whiteSpace: 'pre', letterSpacing: '0.02em' }}>
+                            {transposeLine(line.chords, steps)}
+                          </div>
+                        )}
+                        {line.lyric && (
+                          <div style={{ color: '#111827', fontSize: `${fontSize}px`, lineHeight: 1.9, whiteSpace: 'pre' }}>
+                            {line.lyric}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
