@@ -52,6 +52,46 @@ const hymns = [
       },
     ],
   },
+  {
+    id: 3,
+    code: "C-003",
+    name: "What A Beautiful Name",
+    key: "D",
+    content: [
+      {
+        section: "Verse 1",
+        lines: [
+          { chords: "D              G", lyric: "You were the Word at the beginning" },
+          { chords: "Bm             A", lyric: "One with God the Lord Most High" },
+          { chords: "Bm    A/C#     D       G", lyric: "Your hidden glory in creation" },
+          { chords: "Bm             A", lyric: "Now revealed in You our Christ" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "D              A", lyric: "What a beautiful Name it is" },
+          { chords: "",               lyric: "What a beautiful Name it is" },
+          { chords: "Bm    A        G", lyric: "The Name of Jesus Christ my King" },
+          { chords: "D/F#           A", lyric: "What a beautiful Name it is" },
+          { chords: "",               lyric: "Nothing compares to this" },
+          { chords: "Bm    A        G", lyric: "What a beautiful Name it is" },
+          { chords: "",               lyric: "The Name of Jesus" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "G              A", lyric: "Death could not hold You" },
+          { chords: "",               lyric: "The veil tore before You" },
+          { chords: "Bm             F#m", lyric: "You silenced the boast of sin and grave" },
+          { chords: "G              A", lyric: "The heavens are roaring" },
+          { chords: "",               lyric: "The praise of Your glory" },
+          { chords: "Bm             A", lyric: "For You are raised to life again" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
