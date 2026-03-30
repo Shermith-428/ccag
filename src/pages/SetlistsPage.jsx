@@ -206,9 +206,9 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
               style={{
                 animationDelay: `${i * 0.04}s`,
                 padding: '22px 24px',
-                background: activeId === s.id ? 'rgba(241,113,65,0.1)' : 'var(--surface2)',
+                background: activeId === s.id ? 'rgba(31,63,195,0.1)' : 'var(--surface2)',
                 border: activeId === s.id ? '2px solid var(--border3)' : '1px solid var(--border)',
-                boxShadow: activeId === s.id ? '0 0 28px rgba(241,113,65,0.1)' : 'none',
+                boxShadow: activeId === s.id ? '0 0 28px rgba(31,63,195,0.1)' : 'none',
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
                 <div style={{ minWidth: 0, flex: 1 }}>
@@ -275,7 +275,7 @@ export default function SetlistsPage({ hymns, setlists, setSetlists, favorites, 
 
           {/* Saved key toast */}
           {savedMsg && (
-            <div style={{ background: 'rgba(241,113,65,0.12)', borderBottom: '1px solid var(--border3)', padding: '10px 20px', fontSize: '13px', color: 'var(--accent)', fontWeight: 600, textAlign: 'center' }}>
+            <div style={{ background: 'rgba(31,63,195,0.12)', borderBottom: '1px solid var(--border3)', padding: '10px 20px', fontSize: '13px', color: 'var(--accent)', fontWeight: 600, textAlign: 'center' }}>
               ✓ Transpose key saved to setlist
             </div>
           )}
