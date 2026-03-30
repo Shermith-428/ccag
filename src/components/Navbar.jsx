@@ -40,7 +40,7 @@ export default function Navbar({ page, setPage }) {
         <div className="max-w-5xl mx-auto px-6 xl:px-8 h-16 flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-3 shrink-0">
-            <img src="/CCAG.jpeg" alt="CCAG Logo"
+            <img src="/Last logo.png" alt="CCAG Logo"
               className="rounded-xl object-contain"
               style={{ width: '38px', height: '38px', background: '#fff', padding: '2px' }} />
             <div className="flex flex-col leading-none">
@@ -80,7 +80,7 @@ export default function Navbar({ page, setPage }) {
       <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 md:px-6"
         style={{ background: 'rgba(26,18,16,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', height: 'clamp(48px, 8vh, 64px)' }}>
         <div className="flex items-center gap-2.5">
-          <img src="/CCAG.jpeg" alt="CCAG Logo"
+          <img src="/Last logo.png" alt="CCAG Logo"
             className="rounded-lg object-contain"
             style={{ width: '34px', height: '34px', background: '#fff', padding: '2px' }} />
           <div className="flex flex-col leading-none">
