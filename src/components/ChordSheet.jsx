@@ -261,7 +261,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
                           </div>
                         )}
                         {line.lyric && (
-                          <div style={{ color: '#111827', fontSize: `${fontSize}px`, lineHeight: 1.8, whiteSpace: 'pre', fontFamily: 'Inter, sans-serif' }}>
+                          <div style={{ color: '#111827', fontSize: `${fontSize}px`, lineHeight: 1.8, whiteSpace: 'pre', fontFamily: 'JetBrains Mono, monospace' }}>
                             {line.lyric}
                           </div>
                         )}
