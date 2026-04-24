@@ -334,6 +334,46 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 101,
+    code: "C-010E",
+    name: "Nothing is Impossible (E)",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E                          B                    C#m7", lyric: "Through You I can do anything, I can do all things" },
+          { chords: "                                    A", lyric: "Cause it's You who gives me strength, nothing is impossible" },
+          { chords: "E                          B                    C#m7", lyric: "Through You blind eyes are opened, strongholds are broken" },
+          { chords: "                    A", lyric: "I am living by faith nothing is impossible" },
+        ],
+      },
+      {
+        section: "Interlude",
+        lines: [
+          { chords: "A   E   F#m7   A", lyric: "" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E              F#m7         A", lyric: "I'm not gonna live by what I see" },
+          { chords: "C#m7           B            A", lyric: "I'm not gonna live by what I feel" },
+          { chords: "C#m7           B            A", lyric: "Deep down I know that You're here with me" },
+          { chords: "C#m7           B         F#m  A", lyric: "And I know that You can do anything" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A              E", lyric: "I believe, I believe" },
+          { chords: "  C#m          A", lyric: "I believe, I believe in You" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
