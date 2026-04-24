@@ -190,6 +190,42 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 7,
+    code: "C-007",
+    name: "(Hosanna) I see the King of glory",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E                                    C#m", lyric: "I see the King of glory Coming on the clouds with fire" },
+          { chords: "    F#m                      C#m   C#m", lyric: "The whole earth shakes, The whole earth shakes" },
+          { chords: "E", lyric: "I see His love and mercy, Washing over all our sin" },
+          { chords: "    F#m                  C#m   C#m", lyric: "The people sing, The people sing" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "E   A   B   C#m  A       C#m  B", lyric: "Hosanna Hosanna Hosanna in the highest" },
+          { chords: "E   A   B   C#m  A       B     E", lyric: "Hosanna Hosanna Hosanna in the highest" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E                        B", lyric: "Heal my heart and make it clean" },
+          { chords: "E                            C#m", lyric: "Open up my eyes to the things unseen" },
+          { chords: "A                B              C#m", lyric: "Show me how to love like You have loved me" },
+          { chords: "A                            B", lyric: "Break my heart for what breaks Yours" },
+          { chords: "E                            C#m", lyric: "Everything I am for Your Kingdom's cause" },
+          { chords: "A                B        A", lyric: "As I walk from earth into eternity" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
