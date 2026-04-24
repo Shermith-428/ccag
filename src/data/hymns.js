@@ -519,39 +519,6 @@ const hymns = [
     ],
   },
   {
-    id: 15,
-    code: "C-015",
-    name: "O Praise the Name of the Lord our God",
-    key: "G",
-    content: [
-      {
-        section: "Verse",
-        lines: [
-          { chords: "G", lyric: "I cast my mind to Calvary" },
-          { chords: "          D              Em", lyric: "Where Jesus bled and died for me" },
-          { chords: "     C                   G", lyric: "I see His wounds, His hands, His feet" },
-          { chords: "     D              G", lyric: "My Saviour on that cursed tree" },
-        ],
-      },
-      {
-        section: "Chorus",
-        lines: [
-          { chords: "G                    C        G", lyric: "O praise the Name of the Lord our God" },
-          { chords: "  Em           Dsus    D", lyric: "O praise His Name forevermore" },
-          { chords: "     G                    C        Fm", lyric: "For endless days we will sing Your praise" },
-          { chords: "     C       D        G", lyric: "Oh Lord, oh Lord our God" },
-        ],
-      },
-      {
-        section: "Bridge",
-        lines: [
-          { chords: "C        D        Em", lyric: "Oh Lord, oh Lord our God" },
-          { chords: "D        C        D       G", lyric: "Oh Lord, oh Lord our God" },
-        ],
-      },
-    ],
-  },
-  {
     id: 16,
     code: "C-016",
     name: "Our God is Greater",
