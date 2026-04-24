@@ -461,6 +461,41 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 14,
+    code: "C-014",
+    name: "I Speak Jesus",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E", lyric: "I just want to speak the Name of Jesus" },
+          { chords: "C#m", lyric: "Over every heart and every mind" },
+          { chords: "A", lyric: "I know there is peace within Your presence" },
+          { chords: "          E", lyric: "I speak Jesus" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          B        E           A                    E", lyric: "Your name is power Your name is healingYour name is life" },
+          { chords: "          B              E           A              E", lyric: "Break every stronghold shine through the shadows burn like a fire" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E", lyric: "Shout Jesus from the mountains" },
+          { chords: "E", lyric: "And Jesus in the streets" },
+          { chords: "C#m", lyric: "Jesus in the darkness over every enemy" },
+          { chords: "A", lyric: "Jesus for my family" },
+          { chords: "          E", lyric: "I speak the holy name Jesus" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
