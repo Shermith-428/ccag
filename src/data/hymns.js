@@ -729,6 +729,167 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 22,
+    code: "C-022",
+    name: "More Than Able",
+    key: "Eb",
+    content: [
+      {
+        section: "Verse 1",
+        lines: [
+          { chords: "Eb              Ab", lyric: "When did I start to forget" },
+          { chords: "Eb                   Ab", lyric: "All of the great things you did" },
+          { chords: "Cm          Bb", lyric: "When did I throw away" },
+          { chords: "Ab       Eb      Ab", lyric: "Faith for the impossible" },
+        ],
+      },
+      {
+        section: "Chorus 1",
+        lines: [
+          { chords: "Eb        Ab  Eb", lyric: "You are more than able" },
+          { chords: "Cm     Bb       Ab  Eb", lyric: "You are more than able" },
+          { chords: "Eb        Ab  Eb", lyric: "You are more than able" },
+          { chords: "Cm     Bb       Ab", lyric: "You are more than able" },
+          { chords: "     Cm      Bb", lyric: "Who am I to deny" },
+          { chords: "Ab       Fm      Eb", lyric: "What the Lord can do" },
+        ],
+      },
+      {
+        section: "Bridge 1",
+        lines: [
+          { chords: "Eb", lyric: "Can you imagine" },
+          { chords: "", lyric: "With all of the faith in the room" },
+          { chords: "          Ab", lyric: "What the Lord can do, what the Lord can do" },
+          { chords: "Eb", lyric: "It's gonna happen" },
+          { chords: "          Ab", lyric: "Just let the Way Maker through" },
+          { chords: "          Ab", lyric: "He's gonna move, He's gonna move" },
+        ],
+      },
+      {
+        section: "Chorus 2",
+        lines: [
+          { chords: "Eb       Ab", lyric: "Anything is possible" },
+          { chords: "Eb       Ab", lyric: "Anything is possible" },
+          { chords: "Eb       Bb", lyric: "Anything is possible" },
+          { chords: "     Ab      Bb  Eb", lyric: "What the Lord can do" },
+        ],
+      },
+      {
+        section: "Bridge 2",
+        lines: [
+          { chords: "          Eb", lyric: "I've come a long way" },
+          { chords: "          Eb", lyric: "I've seen how you work" },
+          { chords: "", lyric: "There's so much goodness and grace" },
+          { chords: "Ab      Fm", lyric: "Much more than I deserve" },
+          { chords: "          Eb", lyric: "I know who I am" },
+          { chords: "          Eb", lyric: "I can't stay where I'm at" },
+          { chords: "          Fb", lyric: "We've come this far by faith" },
+          { chords: "Ab      Fm", lyric: "And I just can't turn back" },
+        ],
+      },
+      {
+        section: "Chorus 3",
+        lines: [
+          { chords: "          Eb", lyric: "You're not done with me yet" },
+          { chords: "          Eb", lyric: "You're not done with me yet" },
+          { chords: "Ab", lyric: "There's so much more to the story" },
+          { chords: "Ab", lyric: "You're not done with me yet" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 23,
+    code: "C-023",
+    name: "Only You Will I Adore (Adonai)",
+    key: "B",
+    content: [
+      {
+        section: "Intro",
+        lines: [
+          { chords: "G#m7  B  E  C#m7  B  E  C#m7  G#m7", lyric: "" },
+        ],
+      },
+      {
+        section: "Verse",
+        lines: [
+          { chords: "     B              E", lyric: "I lift my voice, I lift my praise to You" },
+          { chords: "     B              E       F#", lyric: "I lift my hands, I lift my worship to You" },
+          { chords: "G#m7        C#/F          E       F#", lyric: "And I  love You more  than I can say" },
+          { chords: "G#m7        C#/F          E", lyric: "Oh I  love You more  than I can say" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     B    B/D#       E              F#", lyric: "Ever I will sing, only You will I adore" },
+          { chords: "     B       C#m7        E          F#", lyric: "Glorify my Lord Only You will I serve" },
+          { chords: "          G#m      F#/A#    B   E  F#", lyric: "For the world will fade away" },
+          { chords: "          G#m      F#/A#  B    E  F#", lyric: "Still my song to You remains" },
+          { chords: "F#              B", lyric: "Only You will I adore" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "  B/D#      E       F#  G#m", lyric: "Oh I  love You always" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 24,
+    code: "C-024",
+    name: "Jesus Jesus (Holy and Anointed One)",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G  Bm  C    G  D   C", lyric: "Je-sus,      Je-sus," },
+          { chords: "G     D      C       Am", lyric: "Holy and Anointed One," },
+          { chords: "G  D  G", lyric: "Je- su s" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "                    C           G", lyric: "Your name is like honey on my lips" },
+          { chords: "               C           G", lyric: "Your Spirit like water to my soul" },
+          { chords: "               C    D    Em", lyric: "Your word is a lamp unto my feet" },
+          { chords: "Am    C          D", lyric: "Jesus I love You, I love You" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 25,
+    code: "C-025",
+    name: "Bless the Lord Oh My Soul",
+    key: "A",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "A        E        B         C#m", lyric: "The sun comes up, it's a new day dawning" },
+          { chords: "A        E        B    C#m", lyric: "It's time to sing Your song again" },
+          { chords: "     A        E        B         C#m", lyric: "Whatever may pass, and whatever lies before me" },
+          { chords: "A        E             B         E", lyric: "Let me be singing when the evening comes" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "E        A        E   B          C#m", lyric: "Bless the Lord, oh my soul oh my soul" },
+          { chords: "A             E    B", lyric: "Worship His holy name" },
+          { chords: "     A   E  A.  B       C#m", lyric: "Sing like never before oh my soul" },
+          { chords: "A        B        E", lyric: "I'll worship Your holy name" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
