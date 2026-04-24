@@ -1967,6 +1967,310 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 61,
+    code: "C-061",
+    name: "See a Victory",
+    key: "E",
+    content: [
+      {
+        section: "Intro",
+        lines: [
+          { chords: "C#m  A    E", lyric: "" },
+        ],
+      },
+      {
+        section: "Verse 1",
+        lines: [
+          { chords: "     C#m              A              E", lyric: "The weapon may be formed but it won't prosper" },
+          { chords: "C#m              A              E", lyric: "When the darkness falls it won't prevail" },
+          { chords: "          C#m              A              E", lyric: "Cause the God I serve knows only how to triumph" },
+          { chords: "C#m       A    E", lyric: "My God will never fail" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          C#m                        A", lyric: "I'm gonna see a victory, I'm gonna see a victory" },
+          { chords: "E              B", lyric: "For the battle belongs to You Lord" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "A                         B", lyric: "You take what the enemy meant for evil" },
+          { chords: "          A", lyric: "And you turn it for good" },
+          { chords: "          B", lyric: "You turn it for good" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 62,
+    code: "C-062",
+    name: "Down at Your Feet (No Higher Calling)",
+    key: "A",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "A       C#m  D", lyric: "Down at Your feet, O Lord" },
+          { chords: "     E          A", lyric: "Is the most high place" },
+          { chords: "C#m       D", lyric: "In Your presence Lord" },
+          { chords: "F       A    F    G    A", lyric: "I seek Your face, I seek Your face" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "D       E", lyric: "There is no higher calling" },
+          { chords: "C#m       F#m", lyric: "No greater honour" },
+          { chords: "     Bm       E          A", lyric: "Than to bow and kneel before Your throne" },
+          { chords: "D       E", lyric: "I'm amazed at Your glory" },
+          { chords: "C#m       F#m", lyric: "Embraced by Your mercy" },
+          { chords: "  Bm7    E          A", lyric: "O Lord, I live to worship You" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 63,
+    code: "C-063",
+    name: "Come Holy Spirit (Fall Afresh on Me)",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E    B       C#m", lyric: "Come Holy Spirit" },
+          { chords: "A    B       E", lyric: "Fall afresh on me" },
+          { chords: "E    B       C#m", lyric: "Fill me with your power" },
+          { chords: "F#          B", lyric: "Satisfy my needs" },
+          { chords: "C#m  B       A", lyric: "Only You can make me whole" },
+          { chords: "C#m  B       A", lyric: "Give me strength to make me grow" },
+          { chords: "E    B       C#m", lyric: "Come Holy Spirit" },
+          { chords: "A    B       E", lyric: "Fall afresh on me" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E    B", lyric: "Pour it out Lord" },
+          { chords: "A", lyric: "Pour it out Lord" },
+          { chords: "C#m  B       A", lyric: "Pour it out Your Spirit on me" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 64,
+    code: "C-064",
+    name: "This is the Day (He Goes Before Me)",
+    key: "F",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "F", lyric: "This is the day that the Lord has made" },
+          { chords: "               C", lyric: "I will rejoice and celebrate" },
+          { chords: "F", lyric: "This is the day that the Lord has made" },
+          { chords: "Bb  F/A    Bb    F       C    F", lyric: "I will rejoice, I will rejoice and celebrate" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "Bb       F       Bb          F", lyric: "He goes before me He goes before me" },
+          { chords: "Bb       F       Bb          F", lyric: "He walks beside me He walks beside me" },
+          { chords: "Bb       F       Dm7          C", lyric: "He lives within me; He's the Lover of my soul" },
+          { chords: "     F       Bb       F", lyric: "He's my defender He's my defender" },
+          { chords: "Bb       F       Bb          F", lyric: "He's my provider He's my provider" },
+          { chords: "Bb       C              F", lyric: "His overflowing mercies are brand new every day" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 65,
+    code: "C-065",
+    name: "I Love to be in Your Presence",
+    key: "F",
+    content: [
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     F              Bb              F       C", lyric: "I love to be in Your presence With Your people singing praises" },
+          { chords: "     F              Bb", lyric: "I love to stand and rejoice" },
+          { chords: "     F       C       F", lyric: "Lift my hands and raise my voice" },
+        ],
+      },
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Bb       F       Bb          F", lyric: "You set my feet to dancing, You fill my heart with song" },
+          { chords: "Eb2       Bb       C", lyric: "You give me reason to rejoice, rejoice" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 66,
+    code: "C-066",
+    name: "Majesty, Worship His Majesty",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G              C    Am", lyric: "Majesty, worship His majesty," },
+          { chords: "     G       Em          D7", lyric: "Unto Jesus be all glory, power, and praise." },
+          { chords: "G              C    Am", lyric: "Majesty, kingdom, authority" },
+          { chords: "          G              D7", lyric: "Flow from His throne unto His own," },
+          { chords: "G", lyric: "His anthem raise." },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "D7                        G", lyric: "So exalt, lift up on high the name of Jesus." },
+          { chords: "     D7                        G    D", lyric: "Magnify, come glorify Christ Jesus, the King." },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "G    C    G    C       Am", lyric: "Majesty, worship His majesty." },
+          { chords: "     G              D7", lyric: "Jesus, who died, now glorified," },
+          { chords: "G", lyric: "King of all Kings." },
+        ],
+      },
+    ],
+  },
+  {
+    id: 67,
+    code: "C-067",
+    name: "God I Look to You",
+    key: "Bb",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Bb                   F", lyric: "God I look to You, I won't be overwhelmed" },
+          { chords: "Eb       Gm          F", lyric: "Give me vision to see things like You do" },
+          { chords: "Bb                   F", lyric: "God I look to You, You're where my help comes from" },
+          { chords: "Eb       Gm          F", lyric: "Give me wisdom; You know just what to do" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "Eb       Cm       F", lyric: "I will love You Lord my strength" },
+          { chords: "Eb       Cm       F", lyric: "I will love You Lord my shield" },
+          { chords: "Eb       Cm       F    Bb", lyric: "I will love You Lord my rock forever" },
+          { chords: "Eb       F       Bb", lyric: "All my days I will love You God" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "Eb       Gm       F", lyric: "Hallelujah our God reigns" },
+          { chords: "Eb       Gm       F", lyric: "Hallelujah our God reigns" },
+          { chords: "Eb       Gm       F       Bb", lyric: "Hallelujah our God reigns forever" },
+          { chords: "Eb       F    Bb", lyric: "All my days Hallelujah" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 68,
+    code: "C-068",
+    name: "Open the Eyes of My Heart",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E                             B/D#", lyric: "Open the eyes of my heart Lord Open the eyes of my heart" },
+          { chords: "A/C#    A              E", lyric: "I want to see You    I want to see You" },
+          { chords: "     B              C#m", lyric: "To see You high and lifted up" },
+          { chords: "A              B", lyric: "Shining in the light of Your glory" },
+          { chords: "B       C#m       A              B", lyric: "Pour out Your power & love , as we sing Holy Holy Holy" },
+          { chords: "E       B/D#       A              E", lyric: "Holy HolyHoly - Holy HolyHoly - Holy HolyHoly I want to see You" },
+        ],
+      },
+      {
+        section: "On F",
+        lines: [
+          { chords: "F                             C/E", lyric: "Open the eyes of my heart Lord Open the eyes of my heart" },
+          { chords: "Bb/D    Bb              F", lyric: "I want to see You    I want to see You" },
+          { chords: "     C              Dm", lyric: "To see You high and lifted up" },
+          { chords: "Bb              C", lyric: "Shining in the light of Your glory" },
+          { chords: "C       Dm       Bb              C", lyric: "Pour out Your power & love , as we sing Holy HolyHoly" },
+          { chords: "F       C/E       Bb              F", lyric: "Holy HolyHoly - Holy HolyHoly - Holy HolyHoly I want to see You" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 69,
+    code: "C-069",
+    name: "Great in Power",
+    key: "D",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "D", lyric: "Praise Him you heavens and all that's above" },
+          { chords: "D", lyric: "Praise Him you angels and heavenly hosts" },
+          { chords: "G              D", lyric: "Let the whole earth praise Him" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "D              Bm", lyric: "Great in  power, great in  glory" },
+          { chords: "G       Bm       A", lyric: "Great in mercy, King of hea - ven" },
+          { chords: "D              Bm", lyric: "Great in  battle, great in  wonder" },
+          { chords: "G       Bm       A       D", lyric: "Great in Zion, King over all  the earth" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 70,
+    code: "C-070",
+    name: "Here for You",
+    key: "C",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C", lyric: "Let our praise be Your welcome, Let our songs be a sign" },
+          { chords: "F              C", lyric: "We are here for You, we are here for You" },
+          { chords: "C", lyric: "Let Your breath come from heaven, Fill our hearts with Your life" },
+          { chords: "F              C", lyric: "We are here for You, we are here for You" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     F              G", lyric: "To You our hearts are open nothing here is hidden" },
+          { chords: "C/E          F    Dm", lyric: "You are our one desire You alone are holy" },
+          { chords: "G/B       C/E          F", lyric: "Only You are worthy God, let Your fire fall down" },
+        ],
+      },
+      {
+        section: "Ending",
+        lines: [
+          { chords: "C", lyric: "We welcome You with praise, we welcome You with praise" },
+          { chords: "Am              F", lyric: "Almighty God of love, be welcome in this place" },
+          { chords: "C", lyric: "Let every heart adore, let every soul awake" },
+          { chords: "Am              F", lyric: "Almighty God of love, Be welcome in this place" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
