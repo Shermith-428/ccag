@@ -37,7 +37,7 @@ export default function Navbar({ page, setPage }) {
       <nav className="hidden lg:block sticky top-0 z-40"
         style={{ background: 'rgba(26,26,28,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', position: 'relative' }}>
         <div className="nav-glow" />
-        <div style={{ maxWidth: '896px', margin: '0 auto', padding: '0 24px' }} className="h-16 flex items-center justify-between gap-4">
+        <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 24px', width: '100%' }} className="h-16 flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-3 shrink-0">
             <img src="/Last logo.png" alt="CCAG Logo"
@@ -77,8 +77,8 @@ export default function Navbar({ page, setPage }) {
       </nav>
 
       {/* ── Tablet + Phone top bar (< 1024px) ── */}
-      <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 md:px-6"
-        style={{ background: 'rgba(26,26,28,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', height: 'clamp(48px, 8vh, 64px)' }}>
+      <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between"
+        style={{ background: 'rgba(26,26,28,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', height: 'clamp(48px, 8vh, 64px)', padding: '0 24px' }}>
         <div className="flex items-center gap-2.5">
           <img src="/Last logo.png" alt="CCAG Logo"
             className="rounded-lg object-contain"

@@ -10,7 +10,7 @@ export default function FavoritesPage({ hymns, favorites, setFavorites }) {
   }
 
   return (
-    <div style={{ maxWidth: '896px', margin: '0 auto', padding: '0 20px' }} className="py-8 page-content">
+    <div style={{ maxWidth: '720px', margin: '0 auto', padding: '32px 24px', width: '100%' }} className="page-content">
 
       {/* ── Hero ── */}
       <div className="hero-banner fade-up mb-8">
