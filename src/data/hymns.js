@@ -890,6 +890,196 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 26,
+    code: "C-026",
+    name: "Arise",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E          B          D6               A2", lyric: "One thing we ask of You,  one thing that we desire" },
+          { chords: "E          B          D6               A2", lyric: "That as we worship You,  Lord, come and change our lives" },
+          { chords: "E    B/E   E    A/E", lyric: "Arise, arise, arise, arise" },
+        ],
+      },
+      {
+        section: "Chorus 1",
+        lines: [
+          { chords: "E              B          C#m7              A2", lyric: "Arise, take Your place, be enthroned on our praise" },
+          { chords: "E              B          C#m7      A2   E", lyric: "Arise, King of kings, Holy God, as we sing arise" },
+          { chords: "E     B      C#m7  A2", lyric: "Ar - ise,   ar -  ise" },
+          { chords: "E     B      C#m7  A2", lyric: "Ar - ise,   ar -  ise" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E                                        D/F#    A2", lyric: "We lift You up, we lift You up, we lift You up on our prai - ses" },
+        ],
+      },
+      {
+        section: "Chorus 2",
+        lines: [
+          { chords: "F              C          Dm7    Dm        Bb2", lyric: "Arise, take Your place, be enthroned   on our praise" },
+          { chords: "F              C          Dm7        Bb2   F", lyric: "Arise, King of kings, Holy God, as we sing arise" },
+          { chords: "F    C    Dm7  Bb2", lyric: "Ar - ise,  ar -  ise" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 27,
+    code: "C-027",
+    name: "Lamb (You Did Not Suffer for Nothing)",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Em                    C", lyric: "You did not suffer for nothing" },
+          { chords: "G/D                   C", lyric: "When You shed your blood" },
+          { chords: "Em                    C", lyric: "Every drop was on purpose" },
+          { chords: "G/D          D/F#", lyric: "What amazing love" },
+        ],
+      },
+      {
+        section: "Pre-Chorus",
+        lines: [
+          { chords: "D          Em              C", lyric: "I will make my boast in Your cross alone" },
+          { chords: "D          Em              C", lyric: "Laying every crown at Your feet" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G       D/F#   Em7    C", lyric: "Lamb of God  Worthy is the" },
+          { chords: "G       D/F#   Em7    C", lyric: "Lamb of God  Worthy is the" },
+          { chords: "G       D/F#   Em7    C      G     D/F#  Em7  C", lyric: "Lamb of God  Worthy is the Lamb" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "          Em7      D          C          G", lyric: "And may the Lamb receive His reward in me" },
+          { chords: "          Em7      D          C          G", lyric: "And may the Lamb receive all the glo-ry" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 28,
+    code: "C-028",
+    name: "Thank You Lord",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E              B", lyric: "I come before you today" },
+          { chords: "F#m         C#m        B", lyric: "And there's just one thing that I want to say" },
+          { chords: "          B", lyric: "Thank you, Lord Thank you, Lord" },
+          { chords: "F#m                  C#m   B", lyric: "For all You've given to me," },
+          { chords: "F#m                  C#m   B", lyric: "For all the blessing that I cannot see" },
+          { chords: "A      B/A    B", lyric: "Thank you, Lord Thank you, Lord" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E/F#        B/C#", lyric: "With a grateful heart, with a song of praise" },
+          { chords: "C#m/Dsus        A/Bb", lyric: "With an outstretched arm, I will bless your name" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "E       B       F#m        B", lyric: "Thank you, Lord, I just want to thank you Lord" },
+          { chords: "E       B       F#m    B       E", lyric: "Thank you, Lord, I just want to thank you Lord, Thank You, Lord" },
+        ],
+      },
+      {
+        section: "Verse 2",
+        lines: [
+          { chords: "F                    C", lyric: "For all you've done in my life" },
+          { chords: "Gm              Bbm         C", lyric: "You took my darkness and gave me your light" },
+          { chords: "Bb   C   Bb        C", lyric: "Thank you, Lord Thank you, Lord" },
+          { chords: "Gm                    C", lyric: "You took my sin and my shame" },
+          { chords: "Gm              Bbm         C", lyric: "You took my sickness and healed all my pain" },
+          { chords: "Bb      C    Bb        C", lyric: "Thank you, Lord Thank you, Lord" },
+        ],
+      },
+      {
+        section: "Chorus 2",
+        lines: [
+          { chords: "F       C       Gm          C", lyric: "Thank you, Lord, I just want to thank you Lord" },
+          { chords: "F       C       Gm      C       F", lyric: "Thank you, Lord, I just want to thank you Lord, Thank You, Lord" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 29,
+    code: "C-029",
+    name: "What the Lord Has Done in Me (Hosanna)",
+    key: "C",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "     C       G    C          F          Am", lyric: "Let the weak say I am strong; let the poor say I am rich" },
+          { chords: "G/B   C       G          C", lyric: "Let the blind say I can see" },
+          { chords: "          Dm7      G          C", lyric: "It's what the Lord has done in me" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "Am  G     Am          F                C", lyric: "Hosanna, hosanna, to the Lamb that was slain" },
+          { chords: "Am  G     Am   G/B      C          G    C", lyric: "Hosanna, hosanna, Jesus died and rose again" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 30,
+    code: "C-030",
+    name: "Chosen Generation",
+    key: "C",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C              G       D                    Am7", lyric: "We are a chosen generation called forth to show His excellence" },
+          { chords: "C              G       D          Am7", lyric: "All I require for life, God has given me, I know I am" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          C                   G", lyric: "I know who God says I am, what He says I am," },
+          { chords: "          D              Am7", lyric: "Where He says I'm at, I know who I am" },
+        ],
+      },
+      {
+        section: "Chorus 2",
+        lines: [
+          { chords: "          C                   G", lyric: "I'm walking power, I work in miracles," },
+          { chords: "          D              Am7", lyric: "I live a life of favor, I know who I am" },
+        ],
+      },
+      {
+        section: "Chorus 3",
+        lines: [
+          { chords: "                    C", lyric: "Take a look at me, I'm a wonder" },
+          { chords: "          G", lyric: "It doesn't matter what you see now" },
+          { chords: "          D                    Am7", lyric: "Can you see His glory, 'Cause I know who I am" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
