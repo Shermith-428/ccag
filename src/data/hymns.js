@@ -1364,6 +1364,307 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 41,
+    code: "C-041",
+    name: "Do It Again",
+    key: "F",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "F                              C", lyric: "Walking around these walls, I thought by now they'd fall" },
+          { chords: "F                   C", lyric: "But you have never failed me yet" },
+          { chords: "F                              C", lyric: "Waiting for change to come, Knowing the battle's won" },
+          { chords: "F                   C", lyric: "For you have never failed me yet" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "F       G              C              F", lyric: "Your promise still stands, Great is your faithfulness, faithfulness" },
+          { chords: "F       G              C         F       C", lyric: "I'm still in your hands, This is my confidence, You've never failed me yet" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "C  F       C  F              G  C", lyric: "I've seen You move,    You move the mountains" },
+          { chords: "G  C              C  F", lyric: "And I believe I'll see you do it again" },
+          { chords: "C  F       G  C", lyric: "You made a way    Where there was no way" },
+          { chords: "G  C              C", lyric: "And I believe I'll see you do it again" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 42,
+    code: "C-042",
+    name: "Let it Rain",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Em         C", lyric: "Let it rain, let it rain" },
+          { chords: "G              D", lyric: "Open the flood gates of heaven" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 43,
+    code: "C-043",
+    name: "I Came for You",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E          A          C#m                A", lyric: "All it takes is one moment and just one touch from You" },
+          { chords: "E          A          C#m", lyric: "I put aside all distractions I came for You" },
+          { chords: "B       A", lyric: "I came for You" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     E       F#m              C#m          A", lyric: "Holy Spirit, You are welcome Come and move upon this place" },
+          { chords: "     E       F#m          A", lyric: "We desire an encounter once again" },
+          { chords: "          E       F#m", lyric: "Send Your fire, release Your power" },
+          { chords: "C#m          A", lyric: "So we'll never be the same" },
+          { chords: "     E       F#m          A", lyric: "We desire, an encounter once again" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "     B              C#m  A          E", lyric: "We make way, we make room Lord let Your spirit move" },
+          { chords: "     B          C#m  A       B", lyric: "Have Your way, in this place Lord we have come for You" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 44,
+    code: "C-044",
+    name: "Oh Sweet Wind (There's a Wind a Blowin')",
+    key: "D",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "D", lyric: "There's a wind a blowin' all across the land" },
+          { chords: "D", lyric: "A fragrant breeze of heaven, blowin' once again" },
+          { chords: "G", lyric: "Don't know where it comes from" },
+          { chords: "G", lyric: "Don't know where it goes" },
+          { chords: "               D", lyric: "But let it blow over me" },
+          { chords: "A       G       D", lyric: "Oh sweet wind, come and blow over me" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 45,
+    code: "C-045",
+    name: "Be Magnified",
+    key: "Dm",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Dm       C              Gm  F/A  Bb  C    Dm", lyric: "I have made You too small in my eyes  O   Lord,   forgive me" },
+          { chords: "Dm       C       Gm  F/A  Bb       C    Dm", lyric: "I have believed in a lie  that   You were unable to help me" },
+          { chords: "C/E       F       C       Gm", lyric: "But now, O Lord, I see my wrong" },
+          { chords: "F/A  Bb       C       F       C", lyric: "Heal my heart and show Yourself strong" },
+          { chords: "F       C       Gm", lyric: "And in my eyes and with my song" },
+          { chords: "F/A  Bb    C       Dm  Gm    C    F       C", lyric: "O   Lord, be magnified O Lord, be magnified" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "F       C       Gm  F/A  Bb       F/A  Eb  Csus", lyric: "Be magnified, O Lord        You are highly exalted" },
+          { chords: "Am       Dm       Bb", lyric: "And there is nothing You can't do" },
+          { chords: "Gm       C       Dm       C", lyric: "O   Lord, my eyes are on You" },
+          { chords: "Bb  C    Dm  Gm    C    F", lyric: "Be magnified O Lord, be magnified" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 46,
+    code: "C-046",
+    name: "Shekinah Glory Come",
+    key: "F",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "     F              Bb", lyric: "We wait for You, We wait for You" },
+          { chords: "Dm              C", lyric: "We wait for You, To walk in the room" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "F                                   Bb", lyric: "Here we are standing in Your presence, Shekinah glory come down (x2)" },
+          { chords: "Dm                   C", lyric: "Here we are standing in Your presence Shekinah glory come down (x2)" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "     F              C", lyric: "Release the fullness of Your Spirit" },
+          { chords: "Gm              Bb", lyric: "Shekinah glory come Shekinah glory come" },
+        ],
+      },
+      {
+        section: "Bridge 2",
+        lines: [
+          { chords: "F", lyric: "When You move, we want more" },
+          { chords: "C", lyric: "And when You speak, we want more" },
+          { chords: "Gm", lyric: "When You move, we want more" },
+          { chords: "Bb", lyric: "We want the fullness" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 47,
+    code: "C-047",
+    name: "No One Beside You",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E                        C#m", lyric: "Within my heart is a melody that was not taught" },
+          { chords: "          A", lyric: "In the darkest night it still goes on" },
+          { chords: "C#m       B", lyric: "The anthem of my God" },
+          { chords: "E                             C#m", lyric: "Within my heart is a treasure that cannot be bought" },
+          { chords: "          A", lyric: "When all else is faded it will not" },
+          { chords: "C#m       B", lyric: "The presence of my God" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A       E       B", lyric: "Oh magnify the Lord" },
+          { chords: "A       E    C#m    B", lyric: "Let us exalt His name together" },
+          { chords: "A       E       B", lyric: "No one beside You Lord" },
+          { chords: "A       E    C#m    B", lyric: "Honor and praise are Yours forever" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E    B       C#m  A    E/B    B", lyric: "Holy holy is the Lord God almigh - ty" },
+          { chords: "E    B       C#m  A    E/B    B", lyric: "Holy holy is the Lord God almigh - ty" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 48,
+    code: "C-048",
+    name: "Glory",
+    key: "F",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "F              Bb", lyric: "Great is the Lord God almighty" },
+          { chords: "F              Bb", lyric: "Great is the Lord on high" },
+          { chords: "F              Bb", lyric: "The train of His robefills the temple" },
+          { chords: "C    Dm    Bb", lyric: "And we cry out highest praise" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "Bb  F/A    Dm    C       Bb  F/A          G    Bb", lyric: "Glo - ry to the risen king    - Glo- ryto the Son - Glorious Son" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "F", lyric: "Lift up your heads  - Open the doors" },
+          { chords: "Dm       Bb  F/A    C", lyric: "Let the king of glory come in - and forever he our God" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 49,
+    code: "C-049",
+    name: "Lord I Need You",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E    A    E", lyric: "Lord I come, I confess" },
+          { chords: "C#m  B       A", lyric: "Bowing here, I find my rest" },
+          { chords: "     E    A    E", lyric: "Without You, I fall apart" },
+          { chords: "E/B  B       A", lyric: "You're the one that guides my heart" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "E       A    E       B/D#", lyric: "Lord, I need You, oh, I need You" },
+          { chords: "C#m  A    E    B", lyric: "Every hour, I need You" },
+          { chords: "E/G#       A    E/B       A", lyric: "My one defense, my righteousness" },
+          { chords: "  E/B    B    E", lyric: "Oh God, how I need You" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "A          E/G#    B       C#m", lyric: "So teach my song to rise to You" },
+          { chords: "A          E/G#       A", lyric: "When temptation comes my way" },
+          { chords: "A          E/G#    B       C#m", lyric: "And when I cannot stand, I'll fall on You" },
+          { chords: "A          B    E    A", lyric: "Jesus, You're my hope and stay" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 50,
+    code: "C-050",
+    name: "I Surrender (Here I Am)",
+    key: "C#m",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C#m                    E", lyric: "Here I am,  down on my knees again" },
+          { chords: "B       A", lyric: "Surrendering all surrendering all" },
+          { chords: "C#m                    E", lyric: "And find me here,  Lord as You draw me near" },
+          { chords: "B             A", lyric: "Desperate for You desperate for You" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "C#m          E", lyric: "I surrenderI surrender" },
+          { chords: "F#m", lyric: "I want to know You more" },
+          { chords: "A", lyric: "I want to know You more" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "A    E", lyric: "Like a rushing wind" },
+          { chords: "     B", lyric: "Jesus breathe within" },
+          { chords: "     F#m", lyric: "Lord have your way" },
+          { chords: "     C#mB", lyric: "Lord have your way in me" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
