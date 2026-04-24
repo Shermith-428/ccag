@@ -1665,6 +1665,139 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 51,
+    code: "C-051",
+    name: "Hosanna (Praise is Rising)",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G                    C              G", lyric: "Praise is rising, eyes are turning to You, we turn to You" },
+          { chords: "G                         C              G", lyric: "Hope is stirring, hearts are yearning for You, we long for You" },
+        ],
+      },
+      {
+        section: "Pre-Chorus",
+        lines: [
+          { chords: "     D              C              G", lyric: "'Cause when we see You we find strength to face the day" },
+          { chords: "     D              C         G       D", lyric: "In Your presence all our fears are washed away, washed away" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "C/G  G    Em  C              G          D", lyric: "Hosanna, Hosanna - You are the God who saves us" },
+          { chords: "     Em       C", lyric: "Worthy of all our praises" },
+          { chords: "C/G  G    Em  C              G          D", lyric: "Hosanna, Hosanna - Come have Your way among us" },
+          { chords: "     Em       C", lyric: "We welcome You here, Lord Jesus" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 52,
+    code: "C-052",
+    name: "Forever (His Love Endures Forever)",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G", lyric: "Give thanks to the Lord our God and King" },
+          { chords: "G", lyric: "His love endures forever" },
+          { chords: "C                              G", lyric: "For He is good, He is above all things His love endures forever" },
+          { chords: "D              C", lyric: "Sing praise, sing praise" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G", lyric: "Forever God is faithful" },
+          { chords: "Em7", lyric: "Forever God is strong" },
+          { chords: "D", lyric: "Forever God is with us" },
+          { chords: "C", lyric: "Forever and ever forever" },
+          { chords: "G", lyric: "His love endures forever" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 53,
+    code: "C-053",
+    name: "I Could Sing of Your Love Forever",
+    key: "F",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "F                    Dm", lyric: "Over the mountains and the sea" },
+          { chords: "               Bb", lyric: "Your river runs with love for me" },
+          { chords: "               C              F", lyric: "And I will open up my heart and let the healer set me free" },
+          { chords: "F              Dm       Bb", lyric: "I'm happy to be in the truth and I will daily lift my hands" },
+          { chords: "               C", lyric: "And I will always always sing of when your love came down" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "F                    Gm", lyric: "I could sing of Your love forever" },
+          { chords: "Bb       C          F", lyric: "I could sing of Your love forever" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 54,
+    code: "C-054",
+    name: "As the Deer",
+    key: "C",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C       G              Am", lyric: "As the deer panteth for the water" },
+          { chords: "     F       G7    C    G", lyric: "So my soul longs after Thee" },
+          { chords: "C       G              Am", lyric: "You alone are my heart's desire" },
+          { chords: "     F       G       C", lyric: "And I long to worship Thee" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "Am       F          C", lyric: "You alone are my strength, my shield" },
+          { chords: "     F       Dm  F", lyric: "To you alone may my spirit yield" },
+          { chords: "C       G          Am", lyric: "You alone are my heart's desire" },
+          { chords: "     F       G       C", lyric: "And I long to worship Thee" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 55,
+    code: "C-055",
+    name: "You Are Worthy of It All",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C       D    C              D", lyric: "All the saints and angels bow before Your throne" },
+          { chords: "C       D              C       D    G", lyric: "All the elders cast their crowns before the Lamb of God and sing" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G                              D", lyric: "You are worthy of it all -You are worthy of it all" },
+          { chords: "          C                    D", lyric: "For from You are all things - And to You are all things" },
+          { chords: "G", lyric: "You deserve the glory" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
