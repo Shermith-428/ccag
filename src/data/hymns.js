@@ -119,7 +119,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 5,
     code: "C-005",
@@ -153,7 +152,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 6,
     code: "C-006",
@@ -190,7 +188,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 7,
     code: "C-007",
@@ -226,7 +223,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 8,
     code: "C-008",
@@ -256,7 +252,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 9,
     code: "C-009",
@@ -294,7 +289,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 10,
     code: "C-010",
@@ -334,7 +328,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 101,
     code: "C-010E",
@@ -374,7 +367,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 11,
     code: "C-011",
@@ -408,7 +400,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 12,
     code: "C-012",
@@ -433,7 +424,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 13,
     code: "C-013",
@@ -461,7 +451,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 14,
     code: "C-014",
@@ -496,7 +485,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 15,
     code: "C-015",
@@ -530,7 +518,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 15,
     code: "C-015",
@@ -599,7 +586,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 17,
     code: "C-017",
@@ -729,7 +715,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 22,
     code: "C-022",
@@ -890,7 +875,6 @@ const hymns = [
       },
     ],
   },
-  ,
   {
     id: 26,
     code: "C-026",
@@ -1083,3 +1067,4 @@ const hymns = [
 ];
 
 export default hymns;
+

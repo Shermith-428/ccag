@@ -16,10 +16,11 @@ function App() {
   // Merge: add new hymns and update existing ones from defaultHymns
   useEffect(() => {
     setHymns(prev => {
-      const existingIds = new Set(prev.map(h => h.id));
-      const newOnes = defaultHymns.filter(h => !existingIds.has(h.id));
-      const updated = prev.map(h => {
-        const fresh = defaultHymns.find(d => d.id === h.id);
+      const validPrev = prev.filter(Boolean);
+      const existingIds = new Set(validPrev.map(h => h.id));
+      const newOnes = defaultHymns.filter(h => h && !existingIds.has(h.id));
+      const updated = validPrev.map(h => {
+        const fresh = defaultHymns.find(d => d && d.id === h.id);
         return fresh ? fresh : h;
       });
       return newOnes.length ? [...updated, ...newOnes] : updated;
