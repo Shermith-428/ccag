@@ -989,8 +989,8 @@ const hymns = [
       {
         section: "Bridge",
         lines: [
-          { chords: "E/F#        B/C#", lyric: "With a grateful heart, with a song of praise" },
-          { chords: "C#m/Dsus        A/Bb", lyric: "With an outstretched arm, I will bless your name" },
+          { chords: "E/F#        B", lyric: "With a grateful heart, with a song of praise" },
+          { chords: "C#m        A", lyric: "With an outstretched arm, I will bless your name" },
         ],
       },
       {
