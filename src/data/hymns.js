@@ -496,6 +496,109 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 15,
+    code: "C-015",
+    name: "O Praise the Name of the Lord our God",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G", lyric: "I cast my mind to Calvary" },
+          { chords: "          D              Em", lyric: "Where Jesus bled and died for me" },
+          { chords: "     C                   G", lyric: "I see His wounds, His hands, His feet" },
+          { chords: "     D              G", lyric: "My Saviour on that cursed tree" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G                    C        G", lyric: "O praise the Name of the Lord our God" },
+          { chords: "  Em           Dsus    D", lyric: "O praise His Name forevermore" },
+          { chords: "     G                    C        Fm", lyric: "For endless days we will sing Your praise" },
+          { chords: "     C       D        G", lyric: "Oh Lord, oh Lord our God" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "C        D        Em", lyric: "Oh Lord, oh Lord our God" },
+          { chords: "D        C        D       G", lyric: "Oh Lord, oh Lord our God" },
+        ],
+      },
+    ],
+  },
+  ,
+  {
+    id: 15,
+    code: "C-015",
+    name: "O Praise the Name of the Lord our God",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G", lyric: "I cast my mind to Calvary" },
+          { chords: "          D              Em", lyric: "Where Jesus bled and died for me" },
+          { chords: "     C                   G", lyric: "I see His wounds, His hands, His feet" },
+          { chords: "     D              G", lyric: "My Saviour on that cursed tree" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G                    C        G", lyric: "O praise the Name of the Lord our God" },
+          { chords: "  Em           Dsus    D", lyric: "O praise His Name forevermore" },
+          { chords: "     G                    C        Fm", lyric: "For endless days we will sing Your praise" },
+          { chords: "     C       D        G", lyric: "Oh Lord, oh Lord our God" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "C        D        Em", lyric: "Oh Lord, oh Lord our God" },
+          { chords: "D        C        D       G", lyric: "Oh Lord, oh Lord our God" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 16,
+    code: "C-016",
+    name: "Our God is Greater",
+    key: "Em",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Em       C          G    Em       C          G", lyric: "Water You turned into wine - Opened the eyes of the blind" },
+          { chords: "               Am                  D", lyric: "There's no one like you  - None like you" },
+          { chords: "Em       C       G    Em       C          G", lyric: "Into the darkness You shine - Out of the ashes we rise" },
+          { chords: "               Am                  D", lyric: "There's No one like you - None like you" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "Em              C", lyric: "Our God is greater, - our God is stronger" },
+          { chords: "G                        D", lyric: "God You are higher than any other" },
+          { chords: "Em                       C", lyric: "Our God is Healer, -  awesome in power" },
+          { chords: "     G       D", lyric: "Our God, Our God" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "Em              C", lyric: "And if Our God is for us, then who could ever stop us?" },
+          { chords: "G                    D", lyric: "And if our God is with us, then what can stand against?" },
+          { chords: "Em              C", lyric: "And if Our God is for us, then who could ever stop us?" },
+          { chords: "G                    D              Em  C  G  D", lyric: "And if our God is with us, then what can stand against?" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
