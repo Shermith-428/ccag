@@ -153,7 +153,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
         {/* ── Toolbar row 1: close + actions ── */}
-        <div style={{ background: '#0a1828', borderBottom: '1px solid var(--border2)', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', position: 'sticky', top: 0, zIndex: 10 }}>
+        <div style={{ background: '#27272A', borderBottom: '1px solid var(--border2)', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', position: 'sticky', top: 0, zIndex: 10 }}>
           <button onClick={onClose} className="btn btn-secondary" style={{ padding: '10px 16px', fontSize: '14px', gap: '8px' }}>
             <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
               <path d="M1 1l10 10M11 1L1 11"/>
@@ -190,7 +190,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
         </div>
 
         {/* ── Toolbar row 2: transpose + font ── */}
-        <div style={{ background: '#122C4F', borderBottom: '1px solid var(--border)', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+        <div style={{ background: '#312f2f', borderBottom: '1px solid var(--border)', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
 
           {/* Transpose */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -220,7 +220,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
         <div style={{ flex: 1, background: '#fff' }}>
 
           {/* Song header */}
-          <div style={{ background: 'linear-gradient(135deg, #0a1828, #122C4F)', padding: '20px 20px', borderBottom: '3px solid var(--accent)', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ background: 'linear-gradient(135deg, #27272A, #312f2f)', padding: '20px 20px', borderBottom: '3px solid var(--accent)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, transparent, var(--accent), transparent)' }} />
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
@@ -274,7 +274,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
           </div>
 
           {/* Sheet footer */}
-          <div style={{ background: 'linear-gradient(135deg, #0a1828, #122C4F)', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border)' }}>
+          <div style={{ background: 'linear-gradient(135deg, #27272A, #312f2f)', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <img src="/Last logo.png" alt="CCAG" style={{ width: '20px', height: '20px', borderRadius: '4px', background: '#fff', padding: '1px', objectFit: 'contain' }} />
               <span style={{ color: 'var(--muted2)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em' }}>CCAG</span>
