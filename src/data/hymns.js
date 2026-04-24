@@ -374,6 +374,40 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 11,
+    code: "C-011",
+    name: "Your Presence is Heaven to Me",
+    key: "C#m",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C#m              A              E", lyric: "Who is like You Lord in all the earth" },
+          { chords: "C#m              A              E", lyric: "Matchless love and beauty, endless worth" },
+          { chords: "C#m              A              E", lyric: "Nothing in this world will satisfy" },
+          { chords: "C#m              A              E", lyric: "Jesus You're the cup that won't run dry" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     B        A           E", lyric: "Your presence is heaven to me" },
+          { chords: "     B        A           E", lyric: "Your presence is heaven to me" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E        C#m   B", lyric: "Oh Jesus, Oh Jesus" },
+          { chords: "A", lyric: "Your presence is heaven to me" },
+          { chords: "E        C#m   B", lyric: "Oh Jesus, Oh Jesus" },
+          { chords: "A", lyric: "Your presence is heaven to me" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
