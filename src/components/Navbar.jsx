@@ -37,7 +37,7 @@ export default function Navbar({ page, setPage }) {
       <nav className="hidden lg:block sticky top-0 z-40"
         style={{ background: 'rgba(26,26,28,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border2)', position: 'relative' }}>
         <div className="nav-glow" />
-        <div className="max-w-4xl mx-auto px-6 xl:px-8 h-16 flex items-center justify-between gap-4">
+        <div style={{ maxWidth: '896px', margin: '0 auto', padding: '0 24px' }} className="h-16 flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-3 shrink-0">
             <img src="/Last logo.png" alt="CCAG Logo"
