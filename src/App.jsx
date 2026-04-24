@@ -12,6 +12,14 @@ import defaultHymns from './data/hymns';
 function App() {
   const [page, setPage] = useLocalStorage('ccag_page', 'hymns');
   const [hymns, setHymns] = useLocalStorage('ccag_hymns', defaultHymns);
+  // Merge any new hymns from defaultHymns not yet in localStorage
+  useState(() => {
+    setHymns(prev => {
+      const existingIds = new Set(prev.map(h => h.id));
+      const newOnes = defaultHymns.filter(h => !existingIds.has(h.id));
+      return newOnes.length ? [...prev, ...newOnes] : prev;
+    });
+  });
   const [favorites, setFavorites] = useLocalStorage('ccag_favorites', []);
   const [setlists, setSetlists] = useLocalStorage('ccag_setlists', []);
 
