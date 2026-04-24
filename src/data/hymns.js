@@ -256,6 +256,44 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 9,
+    code: "C-009",
+    name: "My Redeemer Lives",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E7          A7               E7             A7", lyric: "I know He rescued my soul, His blood has covered my sin," },
+          { chords: "     E7  A7     E7   A7", lyric: "I believe,    I believe;" },
+          { chords: "E7          A7               E7             A7", lyric: "My shame He's taken away, my pain is healed in His name," },
+          { chords: "     E7  A7     E7  A7", lyric: "I believe,    I believe." },
+        ],
+      },
+      {
+        section: "Pre-Chorus",
+        lines: [
+          { chords: "Bsus               A2              Bsus", lyric: "I'll raise a banner; my Lord has conquered the grave." },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "  E        A          C#m7      Bsus", lyric: "My Redeemer lives, my Redeemer lives;" },
+          { chords: "  E        A          C#m7      Bsus", lyric: "My Redeemer lives, my Redeemer lives." },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "D              A/C#", lyric: "You lift my burden, I'll rise with You;" },
+          { chords: "     E/B          F#m7          E/G#              Bsus", lyric: "I'm dancing on this mountaintop to see Your kingdom come." },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
