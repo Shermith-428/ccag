@@ -14,3 +14,4 @@ export function transposeLine(chordLine, steps) {
   return chordLine.replace(/[A-G][#b]?/g, (note) => transposeNote(note, steps));
 }
 
+

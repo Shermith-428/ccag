@@ -44,7 +44,7 @@ async function generatePDF(hymn, steps, fontSize) {
 
   try {
     const img = new Image(); img.crossOrigin = 'anonymous';
-    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = '/black.PNG'; });
+    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = '/blackR.jpeg'; });
     const c = document.createElement('canvas'); c.width = 60; c.height = 60;
     c.getContext('2d').drawImage(img, 0, 0, 60, 60);
     doc.addImage(c.toDataURL('image/jpeg'), 'JPEG', pad, 15, 60, 60);
@@ -224,7 +224,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, transparent, var(--accent), transparent)' }} />
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
-                <img src="/black.PNG" alt="CCAG"
+                <img src="/blackR.jpeg" alt="CCAG"
                   style={{ width: '52px', height: '52px', borderRadius: '12px', objectFit: 'contain', flexShrink: 0 }} />
                 <div style={{ minWidth: 0 }}>
                   <span className="badge badge-blue" style={{ marginBottom: '6px', display: 'inline-flex' }}>{hymn.code}</span>
@@ -276,7 +276,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
           {/* Sheet footer */}
           <div style={{ background: 'linear-gradient(135deg, #27272A, #312f2f)', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <img src="/black.PNG" alt="CCAG" style={{ width: '20px', height: '20px', borderRadius: '4px', objectFit: 'contain' }} />
+              <img src="/blackR.jpeg" alt="CCAG" style={{ width: '20px', height: '20px', borderRadius: '4px', objectFit: 'contain' }} />
               <span style={{ color: 'var(--muted2)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em' }}>CCAG</span>
             </div>
             <span style={{ color: 'var(--muted)', fontSize: '12px', fontFamily: 'JetBrains Mono' }}>{hymn.code} · Key of {currentKey}</span>
@@ -286,4 +286,5 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
     </div>
   );
 }
+
 

@@ -11,7 +11,7 @@ export default function Footer() {
       gap: '8px',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <img src="/black.PNG" alt="CCAG"
+        <img src="/blackR.jpeg" alt="CCAG"
           style={{ width: '22px', height: '22px', borderRadius: '5px', objectFit: 'contain' }} />
         <span style={{ color: 'var(--muted2)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em' }}>CCAG</span>
         <span style={{ color: 'var(--muted)', fontSize: '11px' }}>Chord Sheet App</span>
@@ -33,4 +33,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 
