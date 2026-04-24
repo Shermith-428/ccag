@@ -433,6 +433,34 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 13,
+    code: "C-013",
+    name: "Celebrate, Jesus Celebrate",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E   A    B    E      A B E", lyric: "Celebrate, Jesus celebrate" },
+          { chords: "E   A    B    E      A B E", lyric: "Celebrate, Jesus celebrate" },
+          { chords: "E   A    B    E      A B E", lyric: "Celebrate, Jesus celebrate" },
+          { chords: "E   A    B    E      A B E", lyric: "Celebrate, Jesus celebrate" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     B              C#m", lyric: "He is risen, He is risen" },
+          { chords: "          B              C#m", lyric: "And He lives forevermore" },
+          { chords: "     B              C#m", lyric: "He is risen, He is risen" },
+          { chords: "          B", lyric: "Come on and celebrate" },
+          { chords: "     A       B    E", lyric: "The resurrection of our Lord" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
