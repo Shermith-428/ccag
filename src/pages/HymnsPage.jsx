@@ -34,7 +34,7 @@ export default function HymnsPage({ hymns, setHymns, favorites, setFavorites }) 
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-5 sm:px-8 py-8 page-content">
+    <div className="max-w-4xl mx-auto px-5 sm:px-8 py-8 page-content">
 
       {/* ── Hero ── */}
       <div className="hero-banner fade-up">
