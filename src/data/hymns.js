@@ -84,6 +84,41 @@ const hymns = [
       },
     ],
   },
+  {
+    id: 4,
+    code: "C-004",
+    name: "We Want to See Jesus Lifted High",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G D Em", lyric: "We want to see Jesus lifted high" },
+          { chords: "C D G", lyric: "A banner that flies across this land" },
+          { chords: "D Em", lyric: "That all men might see the truth and know" },
+          { chords: "C D G", lyric: "He is the way to heaven" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "D Em", lyric: "We want to see, we want to see" },
+          { chords: "C D G", lyric: "We want to see Jesus lifted high" },
+          { chords: "D Em", lyric: "We want to see, we want to see" },
+          { chords: "C D G", lyric: "We want to see Jesus lifted high" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "D Em", lyric: "Step by step we're moving forward" },
+          { chords: "D Em", lyric: "Little by little taking ground" },
+          { chords: "D Em", lyric: "Every prayer a powerful weapon" },
+          { chords: "C D", lyric: "Strongholds come tumbling down and down and down" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
