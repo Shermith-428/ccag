@@ -1798,6 +1798,175 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 56,
+    code: "C-056",
+    name: "Praise (I'll Praise in the Valley)",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "D(E)                    G(A)D(E)", lyric: "I'll praise in the valley    Praise on the mountain" },
+          { chords: "A(B)          G(A)       D(E)", lyric: "I'll praise when I'm sure Praise when I'm doubting" },
+          { chords: "D(E)          G(A)       D(E)", lyric: "I'll praise when outnumbered Praise when surrounded" },
+          { chords: "A(B)G(A)      D(E)", lyric: "Cause praise is the waters My enemies drown in" },
+          { chords: "A(B)          G(A)", lyric: "As long as I'm breathing I've got a reason to" },
+          { chords: "(C#m)  (A)    (E)        (B)", lyric: "" },
+          { chords: "Bm  G     D              A", lyric: "Pra-ise the Lord oh my soul //" },
+        ],
+      },
+      {
+        section: "After 2nd Chorus",
+        lines: [
+          { chords: "Bm(C#m)          G(A)", lyric: "I won't be quietMy God is alive" },
+          { chords: "D(E)      A(B)", lyric: "How could I keep it inside" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "D(E)                         Em(F#m)", lyric: "I'll praise cause You're sovereign Praise cause You reign" },
+          { chords: "D/F#(E/G#)                   G(A)", lyric: "Praise cause You rose and defeated the grave" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 57,
+    code: "C-057",
+    name: "God is Here (Jesus be Revealed)",
+    key: "D",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "D              G    D", lyric: "Open our eyes Lord, we want to see You" },
+          { chords: "A              G       Em", lyric: "Open our hearts Lord, we want to know You" },
+          { chords: "D              G    D", lyric: "Open our ears Lord, we need to hear You" },
+          { chords: "     A    G       D", lyric: "Jesus be revealed, Jesus be revealed" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     D       A          Bm          D", lyric: "God is here, God is here, God is here, He is able" },
+          { chords: "          G       Bm       A", lyric: "We draw near, to see Jesus face to face" },
+          { chords: "     D       A          Bm          D", lyric: "God is here, God is here, God is here, He is faithful" },
+          { chords: "          F#m       Bm    G       D", lyric: "We draw near, to see Jesus, Oh Jesus be revealed" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "G       Bm       Em  G       A", lyric: "Holy, we cry holy Hallelujah, God is here" },
+          { chords: "G       Bm       Em       D", lyric: "Holy, we cry holy Hallelujah, God is here" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 58,
+    code: "C-058",
+    name: "Heart of Worship",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E              B", lyric: "When the music fades" },
+          { chords: "               F#m          B", lyric: "All is stripped away and I simply come" },
+          { chords: "E                        F#m", lyric: "Longing just to bring something that's of worth" },
+          { chords: "               B", lyric: "That will bless your heart" },
+        ],
+      },
+      {
+        section: "Pre Chorus",
+        lines: [
+          { chords: "F#m       E          B", lyric: "I'll bring you more than a song for a song in itself" },
+          { chords: "F#m       E          B", lyric: "Is not what You have required" },
+          { chords: "F#m       E          B                    F#m", lyric: "You search much deeper within through the way things appear" },
+          { chords: "     E          B", lyric: "You're looking into my heart" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "E              B", lyric: "I'm coming back to the heart of worship" },
+          { chords: "     F#m    A       B    E", lyric: "And it's all about You it's all about You, Jesus" },
+          { chords: "E              B", lyric: "I'm sorry Lord for the thing I've made it" },
+          { chords: "     F#m    A       B    E", lyric: "When it's all about You it's all about You, Jesus" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 59,
+    code: "C-059",
+    name: "Broken Vessels",
+    key: "Em",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Em              G", lyric: "All these pieces broken and scattered" },
+          { chords: "Em              G", lyric: "In mercy gathered mended and whole" },
+          { chords: "Em              G", lyric: "Empty handed but not forsaken" },
+          { chords: "          D          Em  D", lyric: "I've been set free, I've been set free" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "C              D", lyric: "Amazing grace, how sweet the sound" },
+          { chords: "     Em          C", lyric: "That saved a wretch like me" },
+          { chords: "C              D", lyric: "Oh I once was lost but now I am found" },
+          { chords: "     Em          C", lyric: "Was blind but now I see" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "          G  D              Em          C", lyric: "Oh I can see You no- w, oh I can see the love in Your eyes" },
+          { chords: "          G  D          Em       C    Em  G  Em  G", lyric: "Laying Yourself do-wn, raising up the broken to life" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 60,
+    code: "C-060",
+    name: "Desert Song",
+    key: "Bm",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Bm       A       G  D", lyric: "This is my prayer in the desert" },
+          { chords: "     Bm          A       G  D", lyric: "When all that's within me feels dry" },
+          { chords: "Bm       A       G       D", lyric: "This is my prayer in my hunger and need" },
+          { chords: "Bm       A       G", lyric: "My God is the God who provides" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          D       A", lyric: "I will bring praise; I will bring praise" },
+          { chords: "G                    D", lyric: "No weapon formed against me shall remain" },
+          { chords: "A/C#    A       Bm", lyric: "I will rejoice; I will declare" },
+          { chords: "     G       D       Bm", lyric: "God is my victory and He  is here" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "D                         Bm", lyric: "All of my life in every season, You are still God" },
+          { chords: "          A    G          D", lyric: "I have a reason to sing; I have a reason to worship" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
