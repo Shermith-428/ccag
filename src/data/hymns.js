@@ -599,6 +599,136 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 17,
+    code: "C-017",
+    name: "Every Praise",
+    key: "Db",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Db                    Bbm", lyric: "Every praise is to our God, Every word of worship with one accord" },
+          { chords: "Gb          Ab          Db", lyric: "Every praise, every praise is to our God" },
+          { chords: "Db                    Bbm", lyric: "Sing Hallelujah to our God, Glory Hallelujah unto our God" },
+          { chords: "Gb          Ab          Db", lyric: "Every praise, every praise is to our God" },
+        ],
+      },
+      {
+        section: "1st Modulation (Key:D)",
+        lines: [
+          { chords: "D                     Bm", lyric: "Every praise is to our God, Every word of worship with one accord" },
+          { chords: "G           A           D", lyric: "Every praise, every praise is to our God" },
+          { chords: "D                     Bm", lyric: "Sing Hallelujah to our God Glory Hallelujah unto our God" },
+          { chords: "G           A           D", lyric: "Every praise, every praise is to our God" },
+        ],
+      },
+      {
+        section: "2nd Modulation (Key:Eb)",
+        lines: [
+          { chords: "Eb                    Cm", lyric: "Every praise is to our God, Every word of worship with one accord" },
+          { chords: "Ab          Bb          Eb", lyric: "Every praise, every praise is to our God" },
+          { chords: "Eb                    Cm", lyric: "Sing Hallelujah to our God Glory Hallelujah unto our God" },
+          { chords: "Eb                    Cm", lyric: "Every praise, every praise is to our God" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "Eb              Cm", lyric: "God my Savior, God my Healer" },
+          { chords: "Ab              Fm       Db       Eb", lyric: "God my Deliverer, Yes He is, yes He is" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 18,
+    code: "C-018",
+    name: "Eagle's Wings",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Am7       Dsus  D", lyric: "Here I am waiting" },
+          { chords: "  G               C", lyric: "Abide in me I pray" },
+          { chords: "Am7       Dsus  D   G", lyric: "Here I am longing for You" },
+          { chords: "Am7       Dsus    D", lyric: "Hide me in Your love" },
+          { chords: "G               C", lyric: "Bring me to my knees" },
+          { chords: "Am7       Dsus  D    G     Gsus  D", lyric: "May I know Jesus more and more" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G               C          Am7    D", lyric: "Come live in me all my life take o-ver" },
+          { chords: "G               C          Am7  C  D  G", lyric: "Come breathe in me I will rise on eagle's wings" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 19,
+    code: "C-019",
+    name: "Worthy is the Lamb",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G      G/B       C        G/B", lyric: "Thank You for the cross Lord" },
+          { chords: "               C    D    G", lyric: "Thank You for the price You paid" },
+          { chords: "               D         Em", lyric: "Bearing all my sin and shame" },
+          { chords: "     D          C     Am  G/B    D", lyric: "In love You came and gave amazing grace" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G            D/F#   Am   G/B  C", lyric: "Worthy is the Lamb seated on the throne" },
+          { chords: "D          C      G/B   C       Am    G     D   D/F#", lyric: "Crown You now with many crowns, You reign victori - ous" },
+          { chords: "G            D/F#    Am  G/B  C", lyric: "High and lifted up,  Jesus Son of God" },
+          { chords: "     D          C      G/B  C    D", lyric: "The Darling of heaven crucified" },
+          { chords: "          Am  G/B   C", lyric: "Worthy is the Lamb" },
+          { chords: "          Am  G/B  D", lyric: "Worthy is the Lamb" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 20,
+    code: "C-020",
+    name: "O Come to the Altar",
+    key: "B",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "B        E2               B", lyric: "Are you hurting and broken within" },
+          { chords: "     E2              G#m          E2", lyric: "Overwhelmed by the weight of your sin, Jesus is calling" },
+          { chords: "B        E2               B", lyric: "Have you come to the end of yourself?" },
+          { chords: "     E2              G#m          E2", lyric: "Do you thirst for a drink from the well, Jesus is calling" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "B            C#m7  G#m               E    B", lyric: "O come to  the altar,  the Father's arms are open wide" },
+          { chords: "     C#m          G#m          E       B", lyric: "Forgiveness  was bought with the precious blood  of Jesus Christ" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "Bsus  B              G#m", lyric: "Oh what a Sav--ior, isn't He wonderful" },
+          { chords: "E2              B", lyric: "Sing alleluia, Christ is risen" },
+          { chords: "Bsus  B              G#m", lyric: "Bow down before Him for He is Lord of all" },
+          { chords: "E2              B", lyric: "Sing alleluia, Christ is risen" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
