@@ -1031,6 +1031,339 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 31,
+    code: "C-031",
+    name: "For Your Name is Holy (Your Glory Fall)",
+    key: "Em",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Em                D", lyric: "I enter the Holy of Holies" },
+          { chords: "Am          D          Em", lyric: "I enter through the blood of the Lamb" },
+          { chords: "D                    Am    D    Em", lyric: "I enter to worship You only I enter to honor I Am" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G       D    Am       Em", lyric: "Lord I  worship You I worship You" },
+          { chords: "     G       D    Am       Em", lyric: "Lord I  worship You I worship You" },
+          { chords: "D       C    D    Em    D  Em", lyric: "For Your name is holy holy Lord" },
+          { chords: "D       C    D    Em    D  Em", lyric: "For Your name is holy holy Lord" },
+        ],
+      },
+      {
+        section: "Ending",
+        lines: [
+          { chords: "Em    D       C    D    Em", lyric: "For Your name is holy holy Lord" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 32,
+    code: "C-032",
+    name: "This is the Air I Breathe",
+    key: "A",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "A              D", lyric: "  This is the air I breathe" },
+          { chords: "A              D", lyric: "  This is the air I breathe" },
+          { chords: "A       E    F#m    D    F#m  E", lyric: "  Your holy presence living in  me" },
+          { chords: "A              D", lyric: "  This is my daily bread" },
+          { chords: "A              D", lyric: "  This is my daily bread" },
+          { chords: "A       E    F#m    D    F#m  E", lyric: "  Your very word spoken to  me" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A  E  F#m  E", lyric: "And I" },
+          { chords: "          D         F#m  E", lyric: "I'm desperate for you" },
+          { chords: "A  E  F#m  E", lyric: "And I" },
+          { chords: "          D         E", lyric: "Im lost without you" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 33,
+    code: "C-033",
+    name: "Graves into Gardens",
+    key: "A",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "D/A        A    D/A        A", lyric: "I searched the world but it couldn't fill me" },
+          { chords: "          F#m              E              D", lyric: "Man's empty praise and treasures that fade are never enough" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          A                              F#m", lyric: "Oh there's nothing better than You, There's nothing better than You" },
+          { chords: "          D                    A", lyric: "Lord there's nothing, nothing is better than You" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "A                   D  A", lyric: "You turn mourning to dancing" },
+          { chords: "A                   D  A", lyric: "You give beauty for ashes" },
+          { chords: "A", lyric: "You turn shame into glory" },
+          { chords: "          F#m  D        A", lyric: "You're the only one who can" },
+          { chords: "          F#m  D        A", lyric: "You're the only one who can" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 34,
+    code: "C-034",
+    name: "Who You Say I Am",
+    key: "A",
+    content: [
+      {
+        section: "Verse 1",
+        lines: [
+          { chords: "A                    F#m  E    A", lyric: " Who am I that the highest King would wel - come me" },
+          { chords: "A                    F#m  E    D", lyric: "I was lost but He brought me in, oh His love for me" },
+          { chords: "          F#m  E  D", lyric: "Oh His love for me" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          A                    E", lyric: "Who the Son sets free, oh is free indeed" },
+          { chords: "F#m  E  D              A", lyric: "I'm a child of God, Yes I am" },
+          { chords: "          A                    E", lyric: "In my Father's house, there's a place for me" },
+          { chords: "F#m  E  D              A", lyric: "I'm a child of God, Yes I am" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "F#m       E          A                D", lyric: "I am chosen, not forsaken, I am who You say I am" },
+          { chords: "F#m       E          A                D", lyric: "You are for me, not against me, I am who You say I am" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 35,
+    code: "C-035",
+    name: "Revelation Song",
+    key: "A",
+    content: [
+      {
+        section: "Verse 1",
+        lines: [
+          { chords: "A              Em", lyric: "  Worthy is the Lamb who was slain" },
+          { chords: "G              D", lyric: "  Holy Holy is He" },
+          { chords: "A              Em", lyric: "  Sing a new song to him who sits on" },
+          { chords: "G              D", lyric: "  Heaven's mercy seat" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A", lyric: "  Holy, Holy, Holy" },
+          { chords: "Em", lyric: "  Is the Lord God Almighty" },
+          { chords: "G              D", lyric: "  Who was and is and is to come" },
+          { chords: "A", lyric: "  With all creation I sing" },
+          { chords: "Em", lyric: "  Praise to the King of Kings" },
+          { chords: "G", lyric: "  You are my everything" },
+          { chords: "D              A", lyric: "  And I will adore You" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 36,
+    code: "C-036",
+    name: "In Jesus Name (God is Fighting for Us)",
+    key: "G",
+    content: [
+      {
+        section: "Verse 1",
+        lines: [
+          { chords: "          G                    Em", lyric: "God is fighting for us, God is on our side" },
+          { chords: "Bm              D", lyric: "He has overcome, Yes he has overcome" },
+          { chords: "          G                    Em       D", lyric: "We will not be shaken, we will not be moved Jesus You are here" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A       G       D              Bm          C", lyric: "I will live, I will not die The resurrection power of Christ alive in me" },
+          { chords: "                    D", lyric: "And I am free in Jesus Name" },
+          { chords: "A       G       D              Bm          C", lyric: "I will live, I will not die I will declare and lift You high, Christ revealed" },
+          { chords: "D              Bm       C", lyric: "I will declare and lift You high, Christ revealed" },
+          { chords: "          G       D    C    D", lyric: "And I am healed in Jesus Name" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "          G                    A", lyric: "God is fighting for us, pushing back the darkness" },
+          { chords: "Bm                    D", lyric: "Lighting up the Kingdom that cannot be shaken" },
+          { chords: "          G       A", lyric: "In the Name of Jesus, enemy's defeated" },
+          { chords: "Bm              D", lyric: "And we will shout it out, shout it out (repeat)" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 37,
+    code: "C-037",
+    name: "Way Maker",
+    key: "C",
+    content: [
+      {
+        section: "Intro",
+        lines: [
+          { chords: "C  F  C  G  Am  (Repeat)", lyric: "" },
+        ],
+      },
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C    F              C", lyric: "You are here  - moving in our midst" },
+          { chords: "     G         Am", lyric: "I worship you  - I worship you" },
+          { chords: "F              C", lyric: "You are here  - Working in this place" },
+          { chords: "     G         Am", lyric: "I worship you  - I worship you" },
+          { chords: "F", lyric: "(And we say) Way maker    - Miracle worker" },
+          { chords: "C              C", lyric: "Promise keeper-Light in the darkness" },
+          { chords: "     G         Am", lyric: "My God       - That is who you are" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "F", lyric: "  Even when I don't feel it you're working" },
+          { chords: "C", lyric: "  Even when I don't see it You're working" },
+          { chords: "G", lyric: "  You never stop, you never stop working" },
+          { chords: "Am", lyric: "  You never stop, you never stop working" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 38,
+    code: "C-038",
+    name: "Every Day (It's You I Live For)",
+    key: "E",
+    content: [
+      {
+        section: "Intro",
+        lines: [
+          { chords: "E - B - G#m - F# (2X)", lyric: "" },
+        ],
+      },
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E        B   G#m          F#       E", lyric: "What to say LordIt's you who gave me life and I" },
+          { chords: "B        G#m  F#", lyric: "Can't explain just howMuch You mean to me now that" },
+          { chords: "B              G#m  F#", lyric: "You have saved me Lord. I give all that I am to You" },
+          { chords: "B        G#m  F#              E", lyric: "That everyday I can. Be a light that shines Your name" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "B    E  G#m    F#", lyric: "Every dayIt's you I'll live for" },
+          { chords: "B    E  G#m    F#    B", lyric: "Every dayI'll follow after You" },
+          { chords: "B    E  G#m    F#    E", lyric: "Every dayI'll walk with You my Lord  (B - E - G#m - F#)" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "B.       E  G#m - F#", lyric: "It's You I live for every day / / /" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 39,
+    code: "C-039",
+    name: "This is How We Overcome (You Have Turned)",
+    key: "G",
+    content: [
+      {
+        section: "Intro",
+        lines: [
+          { chords: "Fmaj9  G  Am7   Fmaj9  G  C / /", lyric: "" },
+        ],
+      },
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Fmaj9      G              Am7", lyric: "Your light broke through my night," },
+          { chords: "Fmaj9      G         C", lyric: "Restored exceeding joy." },
+          { chords: "Fmaj9      G         Am7", lyric: "Your grace fell like the rain," },
+          { chords: "     Fmaj9      G", lyric: "And made this desert live." },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "G       C       G              F    G", lyric: "You have turned  my mourning into dancing." },
+          { chords: "G       C       G              F    G", lyric: "You have turned my sorrow into joy." },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "Fmaj9          G       Fmaj9  G  Am7", lyric: "This is how we overcome." },
+          { chords: "Fmaj9          G       Fmaj9  G  Am7", lyric: "This is how we overcome." },
+        ],
+      },
+    ],
+  },
+  {
+    id: 40,
+    code: "C-040",
+    name: "Great Are You Lord",
+    key: "E",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "E       A       C#m", lyric: "You give life, You are love" },
+          { chords: "          B", lyric: "You bring light to the darkness" },
+          { chords: "          A       C#m", lyric: "You give hope, You restore" },
+          { chords: "          B", lyric: "Every heart that is broken" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A    C#m          B", lyric: "Great are You, Lord" },
+          { chords: "          A       C#m", lyric: "It's Your breath in our lungs" },
+          { chords: "B", lyric: "So we pour out our praise" },
+          { chords: "B", lyric: "We pour out our praise" },
+          { chords: "          A       C#m", lyric: "It's Your breath in our lungs" },
+          { chords: "B              A", lyric: "So we pour out our praise to You only" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E", lyric: "And all the earth will shout Your praise" },
+          { chords: "Esus", lyric: "Our hearts will cry, these bones will sing" },
+          { chords: "A              E", lyric: "Great are You, Lord" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
