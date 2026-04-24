@@ -408,6 +408,31 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 12,
+    code: "C-012",
+    name: "Alpha and Omega",
+    key: "Db",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Db                                  F#        Db", lyric: "You    are  Alpha and      O - me -  ga" },
+          { chords: "F#                        Db", lyric: "We  wor -  ship You, our Lord" },
+          { chords: "                Ab              Db", lyric: "You        are   worthy to be praised" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          Bbm     Ab  F#  Db", lyric: "We give You all -  the  glo - ry" },
+          { chords: "F#                        Db", lyric: "We worship You our Lord" },
+          { chords: "                Ab              Db", lyric: "You are worthy to be praised" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
