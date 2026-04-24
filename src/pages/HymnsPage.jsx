@@ -10,10 +10,12 @@ export default function HymnsPage({ hymns, setHymns, favorites, setFavorites }) 
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState(null);
 
-  const filtered = hymns.filter(h =>
-    h.name.toLowerCase().includes(search.toLowerCase()) ||
-    h.code.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = hymns
+    .filter(h =>
+      h.name.toLowerCase().includes(search.toLowerCase()) ||
+      h.code.toLowerCase().includes(search.toLowerCase())
+    )
+    .sort((a, b) => a.code.localeCompare(b.code, undefined, { numeric: true, sensitivity: 'base' }));
 
   function saveHymn(data) {
     if (editing) setHymns(prev => prev.map(h => h.id === editing.id ? { ...h, ...data } : h));
