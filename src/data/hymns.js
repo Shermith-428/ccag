@@ -119,6 +119,40 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 5,
+    code: "C-005",
+    name: "Days of Elijah",
+    key: "A",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "A              D    A           E          A", lyric: "These are the days of Elijah, Declaring the Word of the Lord." },
+          { chords: "A                    D           A              E        A", lyric: "And these are the days of your servant Moses, Righteousness being restored." },
+          { chords: "C#m                      F#m       D                    E", lyric: "And though these are days of great trials, Of famine and darkness and sword." },
+          { chords: "A                  D         A           E          A", lyric: "Still we are the voice in the desert crying, Prepare ye the way of the lord!" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A                          D", lyric: "Behold He comes, riding on the clouds," },
+          { chords: "A                    E", lyric: "Shining like the sun, at the trumpet call," },
+          { chords: "A                        D", lyric: "So lift your voice it's the year of Jubilee," },
+          { chords: "A          E        A", lyric: "and out of Zion's hill Salvation comes!" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "A                          D", lyric: "There's no God like Jehovah There's no God like Jehovah" },
+          { chords: "A                    E", lyric: "There's no God like Jehovah There's no God like Jehovah" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
