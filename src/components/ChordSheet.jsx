@@ -225,7 +225,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
                 <img src="/black.PNG" alt="CCAG"
-                  style={{ width: '52px', height: '52px', borderRadius: '12px', background: '#fff', padding: '3px', objectFit: 'contain', flexShrink: 0 }} />
+                  style={{ width: '52px', height: '52px', borderRadius: '12px', objectFit: 'contain', flexShrink: 0 }} />
                 <div style={{ minWidth: 0 }}>
                   <span className="badge badge-blue" style={{ marginBottom: '6px', display: 'inline-flex' }}>{hymn.code}</span>
                   <h1 style={{ color: '#fff', fontWeight: 900, fontSize: 'clamp(18px, 4vw, 26px)', lineHeight: 1.15, margin: 0 }}>
@@ -276,7 +276,7 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
           {/* Sheet footer */}
           <div style={{ background: 'linear-gradient(135deg, #27272A, #312f2f)', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <img src="/black.PNG" alt="CCAG" style={{ width: '20px', height: '20px', borderRadius: '4px', background: '#fff', padding: '1px', objectFit: 'contain' }} />
+              <img src="/black.PNG" alt="CCAG" style={{ width: '20px', height: '20px', borderRadius: '4px', objectFit: 'contain' }} />
               <span style={{ color: 'var(--muted2)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em' }}>CCAG</span>
             </div>
             <span style={{ color: 'var(--muted)', fontSize: '12px', fontFamily: 'JetBrains Mono' }}>{hymn.code} · Key of {currentKey}</span>
@@ -286,3 +286,4 @@ export default function ChordSheet({ hymn, onClose, onToggleFavorite, isFavorite
     </div>
   );
 }
+

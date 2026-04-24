@@ -48,3 +48,4 @@ export function parseHymnText(raw) {
   if (currentSection.lines.length > 0) sections.push(currentSection);
   return sections;
 }
+

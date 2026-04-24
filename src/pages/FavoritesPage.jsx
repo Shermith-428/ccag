@@ -65,3 +65,4 @@ export default function FavoritesPage({ hymns, favorites, setFavorites }) {
     </div>
   );
 }
+

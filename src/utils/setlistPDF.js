@@ -282,3 +282,4 @@ export async function generateSetlistPDF(setlist, hymns) {
 
   return doc;
 }
+
