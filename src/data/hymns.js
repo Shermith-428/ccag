@@ -153,6 +153,43 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 6,
+    code: "C-006",
+    name: "Christ is Enough",
+    key: "C#m",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C#m         A              E    B/D#", lyric: "Christ is my reward and all of my devotion" },
+          { chords: "C#m         A              E    B/D#", lyric: "Now there's nothing in this world that could ever satisfy" },
+        ],
+      },
+      {
+        section: "Pre-Chorus",
+        lines: [
+          { chords: "E/G#  A          B    C#m", lyric: "Through every trial, my soul will sing" },
+          { chords: "E/G#  A          B", lyric: "No turning back, I've been set free" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "  E                C#m          B A", lyric: "Christ is enough for me, Christ is enough for me" },
+          { chords: "A          B    C#m  A       B", lyric: "Everything I need is in You, everything I need" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "E/G#    A            B. C#m          A                B", lyric: "I have deci. - ded to follow Je- sus, no turning back, no turning back" },
+          { chords: "E/G#  A          B. C#m       A      B       E", lyric: "I have deci. - ded to follow Je- sus, no turning back, no turning back" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
