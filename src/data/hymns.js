@@ -226,6 +226,36 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 8,
+    code: "C-008",
+    name: "Living Hope",
+    key: "C",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "C                          G", lyric: "How great the chasm that lay between us" },
+          { chords: "          F       Am          G", lyric: "How high the mountain  I could not climb" },
+          { chords: "     C                    G", lyric: "In desperation, I turned to heaven" },
+          { chords: "          F        G         C", lyric: "And spoke Your name into the night" },
+          { chords: "               F                        C", lyric: "Then through the darkness, Your loving-kindness" },
+          { chords: "          Am                G", lyric: "Tore through the shadows of my soul" },
+          { chords: "          C              G        F        G    C", lyric: "The work is finished, the end is written Jesus Christ, my living hope" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "F    C              G                Am", lyric: "Hallelu - jah, praise the One who set me free" },
+          { chords: "F    C              G                Am", lyric: "Hallelu - jah, death has lost its grip on me" },
+          { chords: "          F              C              G              Am", lyric: "You have broken every chain there's salvation in Your name" },
+          { chords: "     F         G      C", lyric: "Jesus Christ, my living hope" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
