@@ -4,11 +4,22 @@ import { parseHymnText } from '../utils/parseHymn';
 const labels = { songCode: 'Song Code', songName: 'Song Name', key: 'Key' };
 const t = (k) => labels[k] ?? k;
 
+function contentToText(content) {
+  if (!content?.length) return '';
+  return content.map(sec =>
+    sec.section + '\n' +
+    sec.lines.map(line =>
+      (line.chords ? line.chords + '\n' : '') +
+      (line.lyric ? line.lyric : '')
+    ).filter(Boolean).join('\n')
+  ).join('\n\n');
+}
+
 export default function HymnForm({ onSave, onClose, existing }) {
   const [code, setCode] = useState(existing?.code ?? '');
   const [name, setName] = useState(existing?.name ?? '');
   const [key, setKey]   = useState(existing?.key ?? 'C');
-  const [raw, setRaw]   = useState('');
+  const [raw, setRaw]   = useState(() => existing ? contentToText(existing.content) : '');
   const [error, setError] = useState('');
 
   function handleSave() {
@@ -65,7 +76,7 @@ export default function HymnForm({ onSave, onClose, existing }) {
 
           <div>
             <label className="text-xs font-medium mb-1.5 block" style={{ color: 'var(--muted2)' }}>
-              Chord Sheet Text {existing && <span style={{ color: 'var(--muted)' }}>(leave blank to keep existing)</span>}
+              Chord Sheet Text {existing && <span style={{ color: 'var(--muted)' }}>(edit below)</span>}
             </label>
             <textarea value={raw} onChange={e => setRaw(e.target.value)} rows={14}
               placeholder={"Verse\nBb  Eb/G\nWe are here together To lift our hearts as one\nBb  Eb\nWe're in our Father's presence His spirit is with us\n\nChorus\nF  Gm\nAnd His mercy we can never contain"}
