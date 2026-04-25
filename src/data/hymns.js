@@ -2271,6 +2271,175 @@ const hymns = [
       },
     ],
   },
+  ,
+  {
+    id: 71,
+    code: "C-071",
+    name: "Just Be",
+    key: "Ab",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Ab              Eb", lyric: "  Everything else can wait" },
+          { chords: "Ab       Eb          Bb", lyric: "  I've come to seek Your face" },
+          { chords: "Ab              Eb", lyric: "  So everything else can wait" },
+          { chords: "     Ab       Eb", lyric: "  I'm here for You" },
+          { chords: "  Bb", lyric: "I want to" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "     Eb  Bb", lyric: "Just be, here at Your feet" },
+          { chords: "     Eb  Bb", lyric: "Just be, here on my knees" },
+          { chords: "Cm       Bb       Ab       Eb", lyric: "Here in Your presence I am complete" },
+          { chords: "  Ab       Bb       Eb", lyric: "Jesus, You're all that I need" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "Ab              Bb", lyric: "  There's nothing I want more" },
+          { chords: "Gm       Ab", lyric: "  'Cause nothing matters more" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 72,
+    code: "C-072",
+    name: "In the Shadow of Your Wings",
+    key: "Am",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "Am                   F", lyric: "Oh my heart aches for Your presence" },
+          { chords: "Am                   F", lyric: "Oh my soul cries for Your love" },
+          { chords: "Am                   F", lyric: "You are the God of my salvation" },
+          { chords: "Am                        F", lyric: "You are my strength and my song" },
+        ],
+      },
+      {
+        section: "Pre-Chorus",
+        lines: [
+          { chords: "     E       Am", lyric: "So I lift up my hands" },
+          { chords: "     E7          F", lyric: "And I pour out my heart" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "F                   C", lyric: "In the shadow of Your wings" },
+          { chords: "  G       Am", lyric: "I sing to You" },
+          { chords: "F                   C", lyric: "You are all my heart desires" },
+          { chords: "Am       G", lyric: "You're all I want" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 73,
+    code: "C-073",
+    name: "Good Good Father",
+    key: "G",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "G", lyric: "I've heard a thousand stories of what they think You're like" },
+          { chords: "G", lyric: "But I've heard the tender whisper of love in the dead of night" },
+          { chords: "C       G       Am       D", lyric: "You tell me that Your pleased and that I'm never alone" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "          C              G", lyric: "You're a good, good Father it's who You are" },
+          { chords: "     Am          D", lyric: "It's who You are, it's who You are" },
+          { chords: "          C", lyric: "And I'm loved by you" },
+          { chords: "G", lyric: "It's who I am" },
+          { chords: "     Am          D", lyric: "It's who I am, it's who I am" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "C                        Em", lyric: "You are perfect in all of your ways" },
+          { chords: "Am                   G", lyric: "You are perfect in all of your ways" },
+          { chords: "C                   Em  D", lyric: "You are perfect in all of your ways to us" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 74,
+    code: "C-074",
+    name: "King of Majesty",
+    key: "A",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "A", lyric: "You know that I love You" },
+          { chords: "F#m", lyric: "You know that I want to" },
+          { chords: "E", lyric: "Know You so much more" },
+          { chords: "D", lyric: "More than I have before" },
+        ],
+      },
+      {
+        section: "Prechorus",
+        lines: [
+          { chords: "          E", lyric: "King of majesty" },
+          { chords: "               F#m", lyric: "I have one desire" },
+          { chords: "     E       F#m    D", lyric: "Just to be with You my Lord" },
+          { chords: "     E       F#m    D", lyric: "Just to be with You my Lord" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "A    D       E    D       A", lyric: "Jesus You are the Saviour of my soul" },
+          { chords: "     A          D", lyric: "And forever and ever" },
+          { chords: "     E    D       A", lyric: "I'll give my praises to You" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 75,
+    code: "C-075",
+    name: "Nothing Else",
+    key: "F",
+    content: [
+      {
+        section: "Verse",
+        lines: [
+          { chords: "          Gm       Bb", lyric: "I'm caught up in Your presence" },
+          { chords: "     F", lyric: "I just want to sit here at Your feet" },
+          { chords: "          Gm       Bb", lyric: "I'm caught up in this holy moment" },
+          { chords: "     F", lyric: "I never want to leave" },
+        ],
+      },
+      {
+        section: "Chorus",
+        lines: [
+          { chords: "  Bb", lyric: "I'm sorry when I've just gone through the motions" },
+          { chords: "  F", lyric: "I'm sorry when I just sang another song" },
+          { chords: "  Bb", lyric: "Take me back to where we started" },
+          { chords: "  F", lyric: "I open up my heart to You" },
+        ],
+      },
+      {
+        section: "Bridge",
+        lines: [
+          { chords: "     Gm          Bb", lyric: "I just want You nothing else" },
+          { chords: "Dm          C", lyric: "Nothing else Nothing else will do" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default hymns;
